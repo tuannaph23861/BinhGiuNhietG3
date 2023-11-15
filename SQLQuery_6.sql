@@ -109,6 +109,7 @@ PhuongThucThanhToan bit,
 NgayThanhToan datetime2,
 FOREIGN KEY (IdKhachHang) REFERENCES KhachHang(Id),
 FOREIGN KEY (IdNhanVien) REFERENCES NhanVien(Id),
+FOREIGN KEY (IdkhuyenMai) REFERENCES khuyenMai(Id),
 )
 
 CREATE TABLE HOADONCHITIET
