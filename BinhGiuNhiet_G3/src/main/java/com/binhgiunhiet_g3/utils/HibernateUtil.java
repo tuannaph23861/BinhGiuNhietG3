@@ -3,7 +3,7 @@ package com.binhgiunhiet_g3.utils;
 
 
 
-import jakarta.persistence.TypedQuery;
+import com.binhgiunhiet_g3.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -11,7 +11,6 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
-import java.util.List;
 import java.util.Properties;
 
 public class HibernateUtil {
@@ -30,8 +29,9 @@ public class HibernateUtil {
         properties.put(Environment.SHOW_SQL, "true");
 
         conf.setProperties(properties);
-//        vidu
 //      conf.addAnnotatedClass(KhachHang.class);
+      conf.addAnnotatedClass(BinhGiuNhiet.class);
+      conf.addAnnotatedClass(BinhGiuNhietChiTiet.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(conf.getProperties()).build();
