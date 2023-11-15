@@ -56,23 +56,27 @@ TrangThai bit,
 
 CREATE TABLE BinhGiuNhiet(
 Id int IDENTITY PRIMARY KEY,
-IdThuongHieu int REFERENCES ThuongHieu(Id),
-IdChatLieu int REFERENCES ChatLieu(Id),
+IdThuongHieu int,
+IdChatLieu int,
 NamSanXuat int,
 MaBinhGiuNhiet nvarchar(10),
 DungTich int,
 Ten nvarchar(50),
 UrlAnh varchar(200),
+FOREIGN KEY (IdThuongHieu) REFERENCES ThuongHieu(Id),
+FOREIGN KEY (IdChatLieu) REFERENCES ChatLieu(Id),
 )
 
 CREATE TABLE BinhGiuNhietChiTiet(
 Id int IDENTITY PRIMARY KEY,
-IdBinhGiuNhiet int REFERENCES BinhGiuNhiet (Id),
-idMauSac int REFERENCES MauSac(Id),
+IdBinhGiuNhiet int,
+IdMauSac int,
 SoLuong int,
 GiaNhap Decimal,
 GiaBan Decimal,
 TrangThai bit,
+FOREIGN KEY (IdBinhGiuNhiet) REFERENCES BinhGiuNhiet(Id),
+FOREIGN KEY (IdMauSac) REFERENCES MauSac(Id),
 )
 
 CREATE TABLE GioHang(
@@ -80,33 +84,41 @@ CREATE TABLE GioHang(
     MaGioHang VARCHAR(10),
     NgayTao DATETIME2,
     TrangThai BIT,
-    IdKhachHang INT REFERENCES KhachHang(Id)
+    IdKhachHang INT,
+    FOREIGN KEY (IdKhachHang) REFERENCES KhachHang(Id),
 )
 
 CREATE TABLE ChiTietGioHang(
     Id             int IDENTITY PRIMARY KEY,
-    IdGioHang      int REFERENCES GioHang(Id),
+    IdGioHang      int,
     SoLuong        int,
-    IdBinhGiuNhietChiTiet int REFERENCES BinhGiuNhietChiTiet(Id),
+    IdBinhGiuNhietChiTiet int,
+    FOREIGN KEY (IdGioHang) REFERENCES GioHang(Id),
+    FOREIGN KEY (IdBinhGiuNhietChiTiet) REFERENCES BinhGiuNhietChiTiet(Id),
 )
 
 CREATE TABLE HoaDon(
 Id int IDENTITY  PRIMARY KEY,
-IdKhachHang int REFERENCES KhachHang(Id),
-IdNhanVien int REFERENCES NhanVien(Id),
-IdkhuyenMai int REFERENCES khuyenMai(Id),
+IdKhachHang int,
+IdNhanVien int,
+IdkhuyenMai int,
 MaDoaDon int,
 TienSauGiamGia DECIMAL,
 ThanhTien DECIMAL,
 PhuongThucThanhToan bit,
-NgayThanhToan datetime2
+NgayThanhToan datetime2,
+FOREIGN KEY (IdKhachHang) REFERENCES KhachHang(Id),
+FOREIGN KEY (IdNhanVien) REFERENCES NhanVien(Id),
+FOREIGN KEY (IdkhuyenMai) REFERENCES khuyenMai(Id),
 )
 
 CREATE TABLE HOADONCHITIET
 (
     Id int IDENTITY PRIMARY KEY,
     IdHoaHon int REFERENCES HoaDon(Id),
-    IdChiTietSanPham int REFERENCES BinhGiuNhietChiTiet(Id),
+    IdChiTietSanPham int,
     SoLuong int,
-    DonGia DECIMAL
+    DonGia DECIMAL,
+    FOREIGN KEY (IdHoaHon) REFERENCES HoaDon(Id),
+    FOREIGN KEY (IdChiTietSanPham) REFERENCES BinhGiuNhietChiTiet(Id),
 )
