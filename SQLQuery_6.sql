@@ -1,5 +1,8 @@
 CREATE DATABASE BinhDuNhietG3
-
+--Use master
+--Drop database BinhDuNhietG3
+Go
+USE BinhDuNhietG3
 CREATE TABLE MauSac(
     Id INT IDENTITY PRIMARY KEY NOT NULL,
     MaMauSac VARCHAR(10),
@@ -115,7 +118,7 @@ FOREIGN KEY (IdkhuyenMai) REFERENCES khuyenMai(Id),
 CREATE TABLE HOADONCHITIET
 (
     Id int IDENTITY PRIMARY KEY,
-    IdHoaHon int REFERENCES HoaDon(Id),
+    IdHoaHon int ,
     IdChiTietSanPham int,
     SoLuong int,
     DonGia DECIMAL,
