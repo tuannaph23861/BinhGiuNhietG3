@@ -4,10 +4,16 @@
  */
 package com.binhgiunhiet_g3.service;
 
-/**
- *
- * @author PC
- */
+import com.binhgiunhiet_g3.entity.BinhGiuNhietChiTiet;
+import java.util.List;
+
+
 public interface BinhGiuNhietChiTietService {
+    List<BinhGiuNhietChiTiet> getAll();
     
+    void add(BinhGiuNhietChiTiet binhGiuNhietChiTiet);
+    
+    void update(BinhGiuNhietChiTiet binhGiuNhietChiTiet);
+    
+    void delete(BinhGiuNhietChiTiet binhGiuNhietChiTiet);
 }
