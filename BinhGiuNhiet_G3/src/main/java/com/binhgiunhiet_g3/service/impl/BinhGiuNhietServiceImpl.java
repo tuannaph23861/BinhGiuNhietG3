@@ -4,10 +4,41 @@
  */
 package com.binhgiunhiet_g3.service.impl;
 
+import com.binhgiunhiet_g3.entity.BinhGiuNhiet;
+import com.binhgiunhiet_g3.repository.BinhGiuNhietRepository;
+import com.binhgiunhiet_g3.service.BinhGiuNhietService;
+import java.util.List;
+
 /**
  *
  * @author PC
  */
-public class BinhGiuNhietServiceImpl {
+public class BinhGiuNhietServiceImpl implements BinhGiuNhietService{
+    private BinhGiuNhietRepository binhGiuNhietRepository;
+
+    public BinhGiuNhietServiceImpl() {
+        this.binhGiuNhietRepository = new BinhGiuNhietRepository();
+    }
+    
+    
+    @Override
+    public List<BinhGiuNhiet> getAll() {
+        return binhGiuNhietRepository.findAll();
+    }
+
+    @Override
+    public void add(BinhGiuNhiet binhGiuNhiet) {
+        this.binhGiuNhietRepository.insert(binhGiuNhiet);
+    }
+
+    @Override
+    public void update(BinhGiuNhiet binhGiuNhiet) {
+        this.binhGiuNhietRepository.update(binhGiuNhiet);
+    }
+
+    @Override
+    public void delete(BinhGiuNhiet binhGiuNhiet) {
+        this.binhGiuNhietRepository.delete(binhGiuNhiet);
+    }
     
 }
