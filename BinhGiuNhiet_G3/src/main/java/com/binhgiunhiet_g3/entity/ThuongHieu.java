@@ -6,21 +6,22 @@ package com.binhgiunhiet_g3.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 
 /**
  *
  * @author Fuyusaki
  */
-
 @Entity
 @Table(name = "ThuongHieu")
 public class ThuongHieu {
-    
+
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private int id;
 
     @Column(name = "MaThuongHieu")
@@ -66,6 +67,5 @@ public class ThuongHieu {
     public String toString() {
         return "ThuongHieu{" + "id=" + id + ", maChatLieu=" + maChatLieu + ", ten=" + ten + '}';
     }
-    
-    
+
 }
