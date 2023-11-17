@@ -33,7 +33,7 @@ public class KhachHang {
     private String ma;
     
     @Column(name = "NgaySinh")
-    private Date ngaysinh;
+    private Date ngaySinh;
     
     @Column(name = "SoDienThoai")
     private String sdt;
@@ -51,7 +51,7 @@ public class KhachHang {
         this.id = id;
         this.tenKhachHang = tenKhachHang;
         this.ma = ma;
-        this.ngaysinh = ngaysinh;
+        this.ngaySinh = ngaysinh;
         this.sdt = sdt;
         this.email = email;
         this.diachi = diachi;
@@ -82,11 +82,11 @@ public class KhachHang {
     }
 
     public Date getNgaysinh() {
-        return ngaysinh;
+        return ngaySinh;
     }
 
     public void setNgaysinh(Date ngaysinh) {
-        this.ngaysinh = ngaysinh;
+        this.ngaySinh = ngaysinh;
     }
 
     public String getSdt() {
@@ -115,7 +115,7 @@ public class KhachHang {
 
     @Override
     public String toString() {
-        return "KhachHang{" + "id=" + id + ", tenKhachHang=" + tenKhachHang + ", ma=" + ma + ", ngaysinh=" + ngaysinh + ", sdt=" + sdt + ", email=" + email + ", diachi=" + diachi + '}';
+        return "KhachHang{" + "id=" + id + ", tenKhachHang=" + tenKhachHang + ", ma=" + ma + ", ngaysinh=" + ngaySinh + ", sdt=" + sdt + ", email=" + email + ", diachi=" + diachi + '}';
     }
     
 }

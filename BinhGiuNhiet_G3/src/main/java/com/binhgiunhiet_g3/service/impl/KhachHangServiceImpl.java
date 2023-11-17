@@ -5,7 +5,6 @@
 package com.binhgiunhiet_g3.service.impl;
 
 import com.binhgiunhiet_g3.entity.KhachHang;
-import com.binhgiunhiet_g3.entity.KhachHang;
 import com.binhgiunhiet_g3.repository.KhachHangRepository;
 import com.binhgiunhiet_g3.service.KhachHangService;
 import java.util.List;
