@@ -3,7 +3,7 @@ package com.binhgiunhiet_g3.utils;
 
 
 
-//import com.binhgiunhiet_g3.entity.*;
+import com.binhgiunhiet_g3.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -30,7 +30,7 @@ public class HibernateUtil {
 
         conf.setProperties(properties);
 //      conf.addAnnotatedClass(KhachHang.class);
-//      conf.addAnnotatedClass(BinhGiuNhiet.class);
+      conf.addAnnotatedClass(BinhGiuNhiet.class);
 //      conf.addAnnotatedClass(BinhGiuNhietChiTiet.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder()

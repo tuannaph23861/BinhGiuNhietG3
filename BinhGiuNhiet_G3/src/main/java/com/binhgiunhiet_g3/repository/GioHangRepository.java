@@ -4,83 +4,74 @@
  */
 package com.binhgiunhiet_g3.repository;
 
-import com.binhgiunhiet_g3.entity.BinhGiuNhiet;
+import com.binhgiunhiet_g3.entity.GioHang;
 import com.binhgiunhiet_g3.utils.HibernateUtil;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
 /**
  *
- * @author PC
+ * @author ADMIN
  */
-public class BinhGiuNhietRepository {
-    
+public class GioHangRepository {
     private Session hSession;
-
-    public BinhGiuNhietRepository() {
-        
-        this.hSession = HibernateUtil.getFACTORY().openSession();
-        }
     
-
-    public void insert(BinhGiuNhiet binhGiuNhiet)
-    {
+    public GioHangRepository(){
+        this.hSession = HibernateUtil.getFACTORY().openSession();
+    }
+    
+    public void insert(GioHang gh){
         Transaction transaction = this.hSession.getTransaction();
         try {
             transaction.begin();
-            this.hSession.persist(binhGiuNhiet);
+            this.hSession.persist(gh);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
     }
-
-    public void update(BinhGiuNhiet binhGiuNhiet)
-    {
+    
+    public void update(GioHang gh){
         Transaction transaction = this.hSession.getTransaction();
         try {
             transaction.begin();
-            this.hSession.merge(binhGiuNhiet);
+            this.hSession.merge(gh);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();   
+        }
+    }
+    
+    public void delete(GioHang gh){
+        Transaction transaction = this.hSession.getTransaction();
+        try {
+            transaction.begin();
+            this.hSession.delete(gh);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
     }
-
-    public void delete(BinhGiuNhiet binhGiuNhiet)
-    {
-        Transaction transaction = this.hSession.getTransaction();
-        try {
-            transaction.begin();
-            this.hSession.delete(binhGiuNhiet);
-            transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            transaction.rollback();
-        }
+    
+    public GioHang findById(String id ){
+        return this.hSession.find(GioHang.class, id);
     }
-
-    public BinhGiuNhiet findById(String id)
-    {
-        return this.hSession.find(BinhGiuNhiet.class, id);
-    }
-
-    public List<BinhGiuNhiet> findAll()
-    {
-        String hql = "SELECT obj FROM BinhGiuNhiet obj";
-        TypedQuery<BinhGiuNhiet> query = this.hSession.createQuery(hql, BinhGiuNhiet.class);
+    
+    public List<GioHang> findAll(){
+        String hql = "SELECT obj FROM GioHang obj";
+        TypedQuery<GioHang> query = this.hSession.createQuery(hql, GioHang.class);
         return query.getResultList();
     }
-
-    public BinhGiuNhiet findByMa(String ma)
-    {
-        String hql = "SELECT obj FROM BinhGiuNhiet obj WHERE obj.Ma = ?1";
-        TypedQuery<BinhGiuNhiet> query = this.hSession.createQuery(hql, BinhGiuNhiet.class);
+    
+    public GioHang findByMa(String ma){
+        String hql = "SELECT obj FROM GioHang obj WHERE obj.MaGioHang = ?1";
+        TypedQuery<GioHang> query = this.hSession.createQuery(hql, GioHang.class);
         query.setParameter(1, ma);
         return query.getSingleResult();
     }

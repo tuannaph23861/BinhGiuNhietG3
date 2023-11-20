@@ -4,84 +4,77 @@
  */
 package com.binhgiunhiet_g3.repository;
 
-import com.binhgiunhiet_g3.entity.BinhGiuNhiet;
+import com.binhgiunhiet_g3.entity.KhachHang;
 import com.binhgiunhiet_g3.utils.HibernateUtil;
 import jakarta.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
+import org.hibernate.query.Query;
 
 /**
  *
- * @author PC
+ * @author Hung
  */
-public class BinhGiuNhietRepository {
-    
+public class KhachHangRepository {
+
     private Session hSession;
 
-    public BinhGiuNhietRepository() {
-        
+    public KhachHangRepository() {
         this.hSession = HibernateUtil.getFACTORY().openSession();
-        }
-    
 
-    public void insert(BinhGiuNhiet binhGiuNhiet)
-    {
+    }
+
+    public void insert(KhachHang khachHang) {
         Transaction transaction = this.hSession.getTransaction();
         try {
             transaction.begin();
-            this.hSession.persist(binhGiuNhiet);
+            this.hSession.persist(khachHang);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
+
     }
 
-    public void update(BinhGiuNhiet binhGiuNhiet)
-    {
+    public void update(KhachHang khachHang) {
         Transaction transaction = this.hSession.getTransaction();
         try {
             transaction.begin();
-            this.hSession.merge(binhGiuNhiet);
+            this.hSession.merge(khachHang);
             transaction.commit();
+
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
     }
-
-    public void delete(BinhGiuNhiet binhGiuNhiet)
+    public void delete(KhachHang khachHang)
     {
         Transaction transaction = this.hSession.getTransaction();
         try {
             transaction.begin();
-            this.hSession.delete(binhGiuNhiet);
+            this.hSession.delete(khachHang);
             transaction.commit();
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
             transaction.rollback();
         }
     }
-
-    public BinhGiuNhiet findById(String id)
+    public List<KhachHang> findALL()
     {
-        return this.hSession.find(BinhGiuNhiet.class, id);
-    }
-
-    public List<BinhGiuNhiet> findAll()
-    {
-        String hql = "SELECT obj FROM BinhGiuNhiet obj";
-        TypedQuery<BinhGiuNhiet> query = this.hSession.createQuery(hql, BinhGiuNhiet.class);
+         String hql = "SELECT obj FROM KhachHang obj";
+        TypedQuery<KhachHang> query = this.hSession.createQuery(hql, KhachHang.class);
         return query.getResultList();
     }
-
-    public BinhGiuNhiet findByMa(String ma)
+    public KhachHang findByMa(String ma)
     {
-        String hql = "SELECT obj FROM BinhGiuNhiet obj WHERE obj.Ma = ?1";
-        TypedQuery<BinhGiuNhiet> query = this.hSession.createQuery(hql, BinhGiuNhiet.class);
+        String hql = "SELECT obj FROM KhachHang obj WHERE obj.Ma = ?1";
+        TypedQuery<KhachHang> query = this.hSession.createQuery(hql, KhachHang.class);
         query.setParameter(1, ma);
         return query.getSingleResult();
     }
-}
+    }
+
