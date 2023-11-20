@@ -62,13 +62,13 @@ public class KhuyenMaiRepository {
     }
     public List<KhuyenMai> findALL()
     {
-         String hql = "SELECT obj FROM KhachHang obj";
+         String hql = "SELECT obj FROM KhuyenMai obj";
         TypedQuery<KhuyenMai> query = this.hSession.createQuery(hql, KhuyenMai.class);
         return query.getResultList();
     }
     public KhuyenMai findByMa(String ma)
     {
-        String hql = "SELECT obj FROM KhachHang obj WHERE obj.Ma = ?1";
+        String hql = "SELECT obj FROM KhuyenMai obj WHERE obj.MaKhuyenMai = ?1";
         TypedQuery<KhuyenMai> query = this.hSession.createQuery(hql, KhuyenMai.class);
         query.setParameter(1, ma);
         return query.getSingleResult();

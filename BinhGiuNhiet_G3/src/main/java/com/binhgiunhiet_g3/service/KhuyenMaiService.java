@@ -4,10 +4,19 @@
  */
 package com.binhgiunhiet_g3.service;
 
+import com.binhgiunhiet_g3.entity.KhuyenMai;
+import java.util.List;
+
 /**
  *
  * @author Hung
  */
 public interface KhuyenMaiService {
+    List<KhuyenMai> getAll();
     
+    void add(KhuyenMai km);
+    
+    void update(KhuyenMai km);
+    
+    void delete(KhuyenMai km);
 }
