@@ -14,7 +14,7 @@ import java.util.List;
 public interface BinhGiuNhietService {
     List<BinhGiuNhiet> getAll();
     
-    void add(BinhGiuNhiet binhGiuNhiet);
+    Boolean add(BinhGiuNhiet binhGiuNhiet);
     
     void update(BinhGiuNhiet binhGiuNhiet);
     

@@ -31,7 +31,7 @@ public class HibernateUtil {
         conf.setProperties(properties);
 //      conf.addAnnotatedClass(KhachHang.class);
       conf.addAnnotatedClass(BinhGiuNhiet.class);
-//      conf.addAnnotatedClass(BinhGiuNhietChiTiet.class);
+      conf.addAnnotatedClass(BinhGiuNhietChiTiet.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(conf.getProperties()).build();

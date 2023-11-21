@@ -67,6 +67,16 @@ public class BinhGiuNhietChiTietRepository {
     {
         return this.hSession.find(BinhGiuNhietChiTiet.class, id);
     }
+    
+    public List<BinhGiuNhietChiTiet> findByIdBinhDuNhiet(int id)
+    {
+        String hql = "SELECT obj FROM BinhGiuNhietChiTiet obj WHERE obj.binhGiuNhiet.id = :binhGiuNhietId";
+        TypedQuery<BinhGiuNhietChiTiet> query = this.hSession.createQuery(hql, BinhGiuNhietChiTiet.class);
+        query.setParameter("binhGiuNhietId", id);
+
+        return query.getResultList();
+    }
+
 
     public List<BinhGiuNhietChiTiet> findAll()
     {
