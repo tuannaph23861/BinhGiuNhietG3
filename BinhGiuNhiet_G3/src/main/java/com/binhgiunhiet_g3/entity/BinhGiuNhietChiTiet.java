@@ -113,6 +113,6 @@ public class BinhGiuNhietChiTiet {
         return "BinhGiuNhietChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", giaNhap=" + giaNhap + ", giaBan=" + giaBan + ", trangThai=" + trangThai + ", binhGiuNhiet=" + binhGiuNhiet + '}';
     }
 
-        
+    // ahihi    
     
 }
