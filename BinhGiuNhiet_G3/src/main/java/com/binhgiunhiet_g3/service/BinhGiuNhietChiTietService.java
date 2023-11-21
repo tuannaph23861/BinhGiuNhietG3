@@ -11,6 +11,8 @@ import java.util.List;
 public interface BinhGiuNhietChiTietService {
     List<BinhGiuNhietChiTiet> getAll();
     
+    List<BinhGiuNhietChiTiet> getByIdSanPham(int id);
+    
     void add(BinhGiuNhietChiTiet binhGiuNhietChiTiet);
     
     void update(BinhGiuNhietChiTiet binhGiuNhietChiTiet);

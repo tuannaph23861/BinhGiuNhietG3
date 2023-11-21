@@ -27,8 +27,8 @@ public class BinhGiuNhietServiceImpl implements BinhGiuNhietService{
     }
 
     @Override
-    public void add(BinhGiuNhiet binhGiuNhiet) {
-        this.binhGiuNhietRepository.insert(binhGiuNhiet);
+    public Boolean add(BinhGiuNhiet binhGiuNhiet) {
+        return this.binhGiuNhietRepository.insert(binhGiuNhiet);
     }
 
     @Override

@@ -42,5 +42,10 @@ public class BinhGiuNhietChiTietServiceImpl implements BinhGiuNhietChiTietServic
     public void delete(BinhGiuNhietChiTiet binhGiuNhietChiTiet) {
        this.binhGiuNhietChiTietRepository.delete(binhGiuNhietChiTiet);
     }
+
+    @Override
+    public List<BinhGiuNhietChiTiet> getByIdSanPham(int id) {
+        return this.binhGiuNhietChiTietRepository.findByIdBinhDuNhiet(id);
+    }
     
 }
