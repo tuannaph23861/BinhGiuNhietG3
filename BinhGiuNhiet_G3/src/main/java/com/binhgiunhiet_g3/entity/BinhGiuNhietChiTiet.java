@@ -2,6 +2,7 @@ package com.binhgiunhiet_g3.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -30,25 +31,25 @@ public class BinhGiuNhietChiTiet {
     @Column(name = "TrangThai")
     private byte trangThai;
     
-    @ManyToOne
-    @JoinColumn(name = "IdMauSac")
-    private int idMauSac;
+//    @ManyToOne
+//    @JoinColumn(name = "IdMauSac")
+//    private int idMauSac;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdBinhGiuNhiet")
-    private int idBinhGiuNhiet;
+    private BinhGiuNhiet binhGiuNhiet;
 
     public BinhGiuNhietChiTiet() {
     }
 
-    public BinhGiuNhietChiTiet(int id, int soLuong, BigDecimal giaNhap, BigDecimal giaBan, byte trangThai, int idMauSac, int idBinhGiuNhiet) {
+    public BinhGiuNhietChiTiet(int id, int soLuong, BigDecimal giaNhap, BigDecimal giaBan, byte trangThai, int idMauSac, BinhGiuNhiet binhGiuNhiet) {
         this.id = id;
         this.soLuong = soLuong;
         this.giaNhap = giaNhap;
         this.giaBan = giaBan;
         this.trangThai = trangThai;
-        this.idMauSac = idMauSac;
-        this.idBinhGiuNhiet = idBinhGiuNhiet;
+//        this.idMauSac = idMauSac;
+        this.binhGiuNhiet = binhGiuNhiet;
     }
 
     public int getId() {
@@ -91,26 +92,27 @@ public class BinhGiuNhietChiTiet {
         this.trangThai = trangThai;
     }
 
-    public int getIdMauSac() {
-        return idMauSac;
+//    public int getIdMauSac() {
+//        return idMauSac;
+//    }
+//
+//    public void setIdMauSac(int idMauSac) {
+//        this.idMauSac = idMauSac;
+//    }
+
+    public BinhGiuNhiet getBinhGiuNhiet() {
+        return binhGiuNhiet;
     }
 
-    public void setIdMauSac(int idMauSac) {
-        this.idMauSac = idMauSac;
-    }
-
-    public int getIdBinhGiuNhiet() {
-        return idBinhGiuNhiet;
-    }
-
-    public void setIdBinhGiuNhiet(int idBinhGiuNhiet) {
-        this.idBinhGiuNhiet = idBinhGiuNhiet;
+    public void setBinhGiuNhiet(BinhGiuNhiet binhGiuNhiet) {
+        this.binhGiuNhiet = binhGiuNhiet;
     }
 
     @Override
     public String toString() {
-        return "BinhGiuNhietChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", giaNhap=" + giaNhap + ", giaBan=" + giaBan + ", trangThai=" + trangThai + ", idMauSac=" + idMauSac + ", idBinhGiuNhiet=" + idBinhGiuNhiet + '}';
+        return "BinhGiuNhietChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", giaNhap=" + giaNhap + ", giaBan=" + giaBan + ", trangThai=" + trangThai + ", binhGiuNhiet=" + binhGiuNhiet + '}';
     }
-     
+
+        
     
 }
