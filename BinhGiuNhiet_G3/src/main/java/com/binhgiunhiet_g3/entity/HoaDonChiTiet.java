@@ -33,21 +33,21 @@ public class HoaDonChiTiet {
 
     @ManyToOne
     @JoinColumn(name = "IdHoaDon")
-    private int idhoaDon;
+    private HoaDon hoaDon;
 
     @ManyToOne
     @JoinColumn(name = "IdChiTietSanPham")
-    private int idbinhGiuNhietChiTiet;
+    private BinhGiuNhietChiTiet binhGiuNhietChiTiet;
 
     public HoaDonChiTiet() {
     }
 
-    public HoaDonChiTiet(int id, int soLuong, float donGia, int idhoaDon, int idbinhGiuNhietChiTiet) {
+    public HoaDonChiTiet(int id, int soLuong, float donGia, HoaDon hoaDon, BinhGiuNhietChiTiet binhGiuNhietChiTiet) {
         this.id = id;
         this.soLuong = soLuong;
         this.donGia = donGia;
-        this.idhoaDon = idhoaDon;
-        this.idbinhGiuNhietChiTiet = idbinhGiuNhietChiTiet;
+        this.hoaDon = hoaDon;
+        this.binhGiuNhietChiTiet = binhGiuNhietChiTiet;
     }
 
     public int getId() {
@@ -74,25 +74,26 @@ public class HoaDonChiTiet {
         this.donGia = donGia;
     }
 
-    public int getIdhoaDon() {
-        return idhoaDon;
+    public HoaDon getHoaDon() {
+        return hoaDon;
     }
 
-    public void setIdhoaDon(int idhoaDon) {
-        this.idhoaDon = idhoaDon;
+    public void setHoaDon(HoaDon hoaDon) {
+        this.hoaDon = hoaDon;
     }
 
-    public int getIdbinhGiuNhietChiTiet() {
-        return idbinhGiuNhietChiTiet;
+    public BinhGiuNhietChiTiet getBinhGiuNhietChiTiet() {
+        return binhGiuNhietChiTiet;
     }
 
-    public void setIdbinhGiuNhietChiTiet(int idbinhGiuNhietChiTiet) {
-        this.idbinhGiuNhietChiTiet = idbinhGiuNhietChiTiet;
+    public void setBinhGiuNhietChiTiet(BinhGiuNhietChiTiet binhGiuNhietChiTiet) {
+        this.binhGiuNhietChiTiet = binhGiuNhietChiTiet;
     }
 
     @Override
     public String toString() {
-        return "HoaDonChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", donGia=" + donGia + ", idhoaDon=" + idhoaDon + ", idbinhGiuNhietChiTiet=" + idbinhGiuNhietChiTiet + '}';
+        return "HoaDonChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", donGia=" + donGia + ", hoaDon=" + hoaDon + ", binhGiuNhietChiTiet=" + binhGiuNhietChiTiet + '}';
     }
 
+    
 }
