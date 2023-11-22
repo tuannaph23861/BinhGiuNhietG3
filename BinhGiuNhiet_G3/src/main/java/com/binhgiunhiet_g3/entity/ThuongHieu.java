@@ -33,7 +33,7 @@ public class ThuongHieu {
     public ThuongHieu() {
     }
 
-    public ThuongHieu(int id, String maThuongHieu, int ten) {
+    public ThuongHieu(int id, String maThuongHieu, String ten) {
         this.id = id;
         this.maThuongHieu = maThuongHieu;
         this.ten = ten;
@@ -55,12 +55,12 @@ public class ThuongHieu {
         this.maThuongHieu = maThuongHieu;
     }
 
-    public String getTenTH() {
-        return tenTH;
+    public String getTen() {
+        return ten;
     }
 
-    public void setTenTH(String tenTH) {
-        this.tenTH = tenTH;
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 
    @Override
