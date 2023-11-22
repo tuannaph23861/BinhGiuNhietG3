@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
  * @author Fuyusaki
  */
 @Entity
-@Table(name = "BinhGiuNhietChiTiet")
+@Table(name = "MauSac")
 public class MauSac {
 
     @Id
@@ -24,18 +24,18 @@ public class MauSac {
     @Column(name = "Id")
     private int id;
 
-    @Column(name = "MaThuongHieu")
-    private int maChatLieu;
+    @Column(name = "MaMauSac")
+    private String maMauSac;
 
     @Column(name = "Ten")
-    private int ten;
+    private String ten;
 
     public MauSac() {
     }
 
-    public MauSac(int id, int maChatLieu, int ten) {
+    public MauSac(int id, String maMauSac, String ten) {
         this.id = id;
-        this.maChatLieu = maChatLieu;
+        this.maMauSac = maMauSac;
         this.ten = ten;
     }
 
@@ -43,29 +43,29 @@ public class MauSac {
         return id;
     }
 
+    public String getMaMauSac() {
+        return maMauSac;
+    }
+
+    public void setMaMauSac(String maMauSac) {
+        this.maMauSac = maMauSac;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public int getMaChatLieu() {
-        return maChatLieu;
-    }
-
-    public void setMaChatLieu(int maChatLieu) {
-        this.maChatLieu = maChatLieu;
-    }
-
-    public int getTen() {
+    public String getTen() {
         return ten;
     }
 
-    public void setTen(int ten) {
+    public void setTen(String ten) {
         this.ten = ten;
     }
 
     @Override
     public String toString() {
-        return "MauSac{" + "id=" + id + ", maChatLieu=" + maChatLieu + ", ten=" + ten + '}';
+        return "MauSac{" + "id=" + id + ", maChatLieu=" + maMauSac + ", ten=" + ten + '}';
     }
 
 }
