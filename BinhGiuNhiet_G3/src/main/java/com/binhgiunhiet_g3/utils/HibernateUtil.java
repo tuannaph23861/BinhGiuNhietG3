@@ -26,18 +26,18 @@ public class HibernateUtil {
         properties.put(Environment.SHOW_SQL, "true");
 
         conf.setProperties(properties);
-        conf.addAnnotatedClass(BinhGiuNhiet.class);
-        conf.addAnnotatedClass(BinhGiuNhietChiTiet.class);
-        conf.addAnnotatedClass(ChatLieu.class);
-        conf.addAnnotatedClass(GioHang.class);
-        conf.addAnnotatedClass(GioHangChiTiet.class);
-        conf.addAnnotatedClass(HoaDon.class);
-        conf.addAnnotatedClass(HoaDonChiTiet.class);
-        conf.addAnnotatedClass(KhachHang.class);
+//        conf.addAnnotatedClass(BinhGiuNhiet.class);
+//        conf.addAnnotatedClass(BinhGiuNhietChiTiet.class);
+//        conf.addAnnotatedClass(ChatLieu.class);
+//        conf.addAnnotatedClass(GioHang.class);
+//        conf.addAnnotatedClass(GioHangChiTiet.class);
+//        conf.addAnnotatedClass(HoaDon.class);
+//        conf.addAnnotatedClass(HoaDonChiTiet.class);
+//        conf.addAnnotatedClass(KhachHang.class);
         conf.addAnnotatedClass(KhuyenMai.class);
-        conf.addAnnotatedClass(MauSac.class);
-        conf.addAnnotatedClass(NhanVien.class);
-        conf.addAnnotatedClass(ThuongHieu.class);
+//        conf.addAnnotatedClass(MauSac.class);
+//        conf.addAnnotatedClass(NhanVien.class);
+//        conf.addAnnotatedClass(ThuongHieu.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(conf.getProperties()).build();

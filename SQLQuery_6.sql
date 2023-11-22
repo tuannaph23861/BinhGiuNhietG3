@@ -19,7 +19,11 @@ CREATE TABLE KHUYENMAI
     KieuGiamGia int,
     TrangThai int
 )
-
+Insert into KhuyenMai Values
+('KM01',20,'2023/04/12','2023/05/15',0,1),
+('KM02',40,'2023/03/11','2023/09/20',1,1)
+('KM03',50,'2023/02/22','2023/12/11',0,0)
+select * from KhuyenMai
 
 CREATE TABLE ThuongHieu(
 Id int IDENTITY PRIMARY KEY,
