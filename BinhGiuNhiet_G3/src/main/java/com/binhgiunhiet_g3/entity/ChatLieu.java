@@ -25,15 +25,15 @@ public class ChatLieu {
     private int id;
 
     @Column(name = "MaChatLieu")
-    private int maChatLieu;
+    private String maChatLieu;
 
     @Column(name = "Ten")
-    private int ten;
+    private String ten;
 
     public ChatLieu() {
     }
 
-    public ChatLieu(int id, int maChatLieu, int ten) {
+    public ChatLieu(int id, String maChatLieu, String ten) {
         this.id = id;
         this.maChatLieu = maChatLieu;
         this.ten = ten;
@@ -47,19 +47,19 @@ public class ChatLieu {
         this.id = id;
     }
 
-    public int getMaChatLieu() {
+    public String getMaChatLieu() {
         return maChatLieu;
     }
 
-    public void setMaChatLieu(int maChatLieu) {
+    public void setMaChatLieu(String maChatLieu) {
         this.maChatLieu = maChatLieu;
     }
 
-    public int getTen() {
+    public String getTen() {
         return ten;
     }
 
-    public void setTen(int ten) {
+    public void setTen(String ten) {
         this.ten = ten;
     }
 

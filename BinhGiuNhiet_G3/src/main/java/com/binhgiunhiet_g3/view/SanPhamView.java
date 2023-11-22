@@ -6,10 +6,19 @@ package com.binhgiunhiet_g3.view;
 
 import com.binhgiunhiet_g3.entity.BinhGiuNhiet;
 import com.binhgiunhiet_g3.entity.BinhGiuNhietChiTiet;
+import com.binhgiunhiet_g3.entity.ChatLieu;
+import com.binhgiunhiet_g3.entity.MauSac;
+import com.binhgiunhiet_g3.entity.ThuongHieu;
 import com.binhgiunhiet_g3.service.BinhGiuNhietChiTietService;
 import com.binhgiunhiet_g3.service.BinhGiuNhietService;
+import com.binhgiunhiet_g3.service.ChatLieuService;
+import com.binhgiunhiet_g3.service.MauSacService;
+import com.binhgiunhiet_g3.service.ThuongHieuService;
 import com.binhgiunhiet_g3.service.impl.BinhGiuNhietChiTietServiceImpl;
 import com.binhgiunhiet_g3.service.impl.BinhGiuNhietServiceImpl;
+import com.binhgiunhiet_g3.service.impl.ChatLieuServiceImpl;
+import com.binhgiunhiet_g3.service.impl.MauSacServiceImpl;
+import com.binhgiunhiet_g3.service.impl.ThuongHieuServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -17,6 +26,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class SanPhamView extends javax.swing.JFrame {
     
+    ThuongHieuService ths = new ThuongHieuServiceImpl();
+    List<ThuongHieu> listTH = new ArrayList<>();
+    ChatLieuService cls = new ChatLieuServiceImpl();
+    List<ChatLieu> listCL = new ArrayList<>();
+    MauSacService mss = new MauSacServiceImpl();
+    List<MauSac> listMS = new ArrayList<>();
     BinhGiuNhietService binhGiuNhietService = new BinhGiuNhietServiceImpl();
     BinhGiuNhietChiTietService binhGiuNhietChiTietService = new BinhGiuNhietChiTietServiceImpl();
     DefaultTableModel model = new DefaultTableModel();
@@ -24,11 +39,58 @@ public class SanPhamView extends javax.swing.JFrame {
 
     public SanPhamView() {
         initComponents();
+        model = (DefaultTableModel) tableTH.getModel();
+        String[] header = {"Id","MaTH","TenTH"};
+        model.setColumnIdentifiers(header);
         
+        model = (DefaultTableModel) tableCL.getModel();
+        String[] headerCL = {"Id","MaCL","TenCL"};
+        model.setColumnIdentifiers(headerCL);
         
+        model = (DefaultTableModel) tableMS.getModel();
+        String[] headerMS = {"Id","MaMS","TenMS"};
+        model.setColumnIdentifiers(headerMS);
+        
+        loadTableTH();
+        loadTableCL();
         loadTableSanPham();
     }
     
+    private void loadTableTH(){
+        this.model = (DefaultTableModel) tableTH.getModel();
+        model.setRowCount(0);
+        this.listTH = this.ths.getAll();
+        for(ThuongHieu th1 : listTH){
+            model.addRow(new Object[]{
+                th1.getMaTH(),
+                th1.getTenTH()
+            });
+        }
+    }
+    
+    private void loadTableCL(){
+        this.model = (DefaultTableModel) tableCL.getModel();
+        model.setRowCount(0);
+        this.listCL = this.cls.getAll();
+        for(ChatLieu cl : listCL){
+            model.addRow(new Object[]{
+                cl.getMaChatLieu(),
+                cl.getTen()
+            });
+        }
+    }
+    
+    private void loadTableMS(){
+        this.model = (DefaultTableModel) tableMS.getModel();
+        model.setRowCount(0);
+        this.listMS = this.mss.getAll();
+        for(MauSac ms : listMS){
+            model.addRow(new Object[]{
+                ms.getMaMS(),
+                ms.getTenMS()
+            });
+        }
+    }
     
     private void loadTableSanPham(){
         this.model = (DefaultTableModel) tableSanPham.getModel();
@@ -106,18 +168,18 @@ public class SanPhamView extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableTH = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tableCL = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        tableMS = new javax.swing.JTable();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        txtTen2 = new javax.swing.JTextField();
+        txtMa = new javax.swing.JTextField();
+        cbbLoai = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -274,7 +336,7 @@ public class SanPhamView extends javax.swing.JFrame {
         jLabel15.setText("Loại");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 40, 20));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableTH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -285,7 +347,7 @@ public class SanPhamView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableTH);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -298,12 +360,12 @@ public class SanPhamView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Thương hiệu", jPanel3);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tableCL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -314,7 +376,7 @@ public class SanPhamView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tableCL);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -327,12 +389,12 @@ public class SanPhamView extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Chất liệu", jPanel4);
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        tableMS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -343,7 +405,7 @@ public class SanPhamView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane6.setViewportView(jTable6);
+        jScrollPane6.setViewportView(tableMS);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -356,7 +418,7 @@ public class SanPhamView extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Màu sắc ", jPanel6);
@@ -368,13 +430,24 @@ public class SanPhamView extends javax.swing.JFrame {
 
         jLabel17.setText("Tên");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 40, 20));
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 210, -1));
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 210, -1));
+        jPanel2.add(txtTen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 210, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thương hiệu", "Chất liệu", "Màu Sắc" }));
-        jPanel2.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 220, -1));
+        txtMa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 210, -1));
+
+        cbbLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thương hiệu", "Chất liệu", "Màu Sắc" }));
+        jPanel2.add(cbbLoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 220, -1));
 
         jButton4.setText("Thêm");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
 
         jButton5.setText("Sửa");
@@ -437,6 +510,25 @@ public class SanPhamView extends javax.swing.JFrame {
         loadTableSanPhamChiTiet(id);
     }//GEN-LAST:event_tableSanPhamMouseClicked
 
+    private void txtMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        ThuongHieu thuongHieu = new ThuongHieu();
+        ChatLieu ch = new ChatLieu();
+        MauSac ms = new MauSac();
+        System.out.println(cbbLoai.getSelectedIndex());
+        if(cbbLoai.getSelectedIndex() == 0){
+            this.ths.add(thuongHieu);
+        }else if(cbbLoai.getSelectedIndex() == 1){
+            this.cls.add(ch);
+        }else{
+            this.mss.add(ms);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -474,6 +566,7 @@ public class SanPhamView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnThemSanPham;
+    private javax.swing.JComboBox<String> cbbLoai;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -483,7 +576,6 @@ public class SanPhamView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -514,22 +606,22 @@ public class SanPhamView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTable tableCL;
+    private javax.swing.JTable tableMS;
     private javax.swing.JTable tableSanPham;
     private javax.swing.JTable tableSanPhamChiTiet;
+    private javax.swing.JTable tableTH;
     private javax.swing.JTextField txtDungTich;
     private javax.swing.JTextField txtGiaBan;
     private javax.swing.JTextField txtGiaNhap;
+    private javax.swing.JTextField txtMa;
     private javax.swing.JTextField txtMaSanPham;
     private javax.swing.JTextField txtNamSanXuat;
     private javax.swing.JTextField txtSoLuong;
     private javax.swing.JTextField txtTen;
+    private javax.swing.JTextField txtTen2;
     // End of variables declaration//GEN-END:variables
 
     private void createSanPham( BinhGiuNhiet binhGiuNhiet) {

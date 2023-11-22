@@ -31,7 +31,7 @@ public class GioHangChiTiet {
     @ManyToOne
     @JoinColumn(name = "IdBinhGiuNhietChiTiet")
     private int idBinhGiuNhietChiTiet;
-     @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "IdGioHang")
     private int idGioHang;
 
