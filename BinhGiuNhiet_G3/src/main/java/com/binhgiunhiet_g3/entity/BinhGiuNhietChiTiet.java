@@ -31,9 +31,9 @@ public class BinhGiuNhietChiTiet {
     @Column(name = "TrangThai")
     private byte trangThai;
     
-//    @ManyToOne
-//    @JoinColumn(name = "IdMauSac")
-//    private int idMauSac;
+    @ManyToOne
+    @JoinColumn(name = "IdMauSac")
+    private MauSac mauSac;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IdBinhGiuNhiet")
@@ -42,13 +42,13 @@ public class BinhGiuNhietChiTiet {
     public BinhGiuNhietChiTiet() {
     }
 
-    public BinhGiuNhietChiTiet(int id, int soLuong, BigDecimal giaNhap, BigDecimal giaBan, byte trangThai, int idMauSac, BinhGiuNhiet binhGiuNhiet) {
+    public BinhGiuNhietChiTiet(int id, int soLuong, BigDecimal giaNhap, BigDecimal giaBan, byte trangThai, MauSac mauSac, BinhGiuNhiet binhGiuNhiet) {
         this.id = id;
         this.soLuong = soLuong;
         this.giaNhap = giaNhap;
         this.giaBan = giaBan;
         this.trangThai = trangThai;
-//        this.idMauSac = idMauSac;
+        this.mauSac = mauSac;
         this.binhGiuNhiet = binhGiuNhiet;
     }
 
@@ -92,13 +92,13 @@ public class BinhGiuNhietChiTiet {
         this.trangThai = trangThai;
     }
 
-//    public int getIdMauSac() {
-//        return idMauSac;
-//    }
-//
-//    public void setIdMauSac(int idMauSac) {
-//        this.idMauSac = idMauSac;
-//    }
+    public MauSac getMauSac() {
+        return mauSac;
+    }
+
+    public void setMauSac(MauSac mauSac) {
+        this.mauSac = mauSac;
+    }
 
     public BinhGiuNhiet getBinhGiuNhiet() {
         return binhGiuNhiet;
@@ -110,9 +110,8 @@ public class BinhGiuNhietChiTiet {
 
     @Override
     public String toString() {
-        return "BinhGiuNhietChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", giaNhap=" + giaNhap + ", giaBan=" + giaBan + ", trangThai=" + trangThai + ", binhGiuNhiet=" + binhGiuNhiet + '}';
+        return "BinhGiuNhietChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", giaNhap=" + giaNhap + ", giaBan=" + giaBan + ", trangThai=" + trangThai + ", mauSac=" + mauSac + ", binhGiuNhiet=" + binhGiuNhiet + '}';
     }
-
-        
+   
     
 }

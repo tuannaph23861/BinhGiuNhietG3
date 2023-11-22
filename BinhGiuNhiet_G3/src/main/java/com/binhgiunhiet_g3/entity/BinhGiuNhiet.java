@@ -42,38 +42,27 @@ public class BinhGiuNhiet {
     @Column(name="UrlAnh")
     private String url;
     
-//    @ManyToOne
-//    @JoinColumn(name = "IdThuongHieu")
-//    private int idThuongHieu;
-//    
-//    @ManyToOne
-//    @JoinColumn(name = "IdChatLieu")
-//    private int idChatLieu;
+    @ManyToOne
+    @JoinColumn(name = "IdThuongHieu")
+    private ThuongHieu thuongHieu;
+    
+    @ManyToOne
+    @JoinColumn(name = "IdChatLieu")
+    private ChatLieu ChatLieu;
 
     public BinhGiuNhiet() {
     }
 
-    public BinhGiuNhiet(int id, String ma, int namSanXuat, int dungTich, String ten, String url) {
+    public BinhGiuNhiet(int id, String ma, int namSanXuat, int dungTich, String ten, String url, ThuongHieu thuongHieu, ChatLieu ChatLieu) {
         this.id = id;
         this.ma = ma;
         this.namSanXuat = namSanXuat;
         this.dungTich = dungTich;
         this.ten = ten;
         this.url = url;
+        this.thuongHieu = thuongHieu;
+        this.ChatLieu = ChatLieu;
     }
-
-    
-//    
-//    public BinhGiuNhiet(int id, String ma, int namSanXuat, int dungTich, String ten, String url, int idThuongHieu, int idChatLieu) {
-//        this.id = id;
-//        this.ma = ma;
-//        this.namSanXuat = namSanXuat;
-//        this.dungTich = dungTich;
-//        this.ten = ten;
-//        this.url = url;
-//        this.idThuongHieu = idThuongHieu;
-//        this.idChatLieu = idChatLieu;
-//    }
 
     public int getId() {
         return id;
@@ -123,31 +112,26 @@ public class BinhGiuNhiet {
         this.url = url;
     }
 
-//    public int getIdThuongHieu() {
-//        return idThuongHieu;
-//    }
-//
-//    public void setIdThuongHieu(int idThuongHieu) {
-//        this.idThuongHieu = idThuongHieu;
-//    }
-//
-//    public int getIdChatLieu() {
-//        return idChatLieu;
-//    }
-//
-//    public void setIdChatLieu(int idChatLieu) {
-//        this.idChatLieu = idChatLieu;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "BinhGiuNhiet{" + "id=" + id + ", ma=" + ma + ", namSanXuat=" + namSanXuat + ", dungTich=" + dungTich + ", ten=" + ten + ", url=" + url + ", idThuongHieu=" + idThuongHieu + ", idChatLieu=" + idChatLieu + '}';
-//    }
+    public ThuongHieu getThuongHieu() {
+        return thuongHieu;
+    }
+
+    public void setThuongHieu(ThuongHieu thuongHieu) {
+        this.thuongHieu = thuongHieu;
+    }
+
+    public ChatLieu getChatLieu() {
+        return ChatLieu;
+    }
+
+    public void setChatLieu(ChatLieu ChatLieu) {
+        this.ChatLieu = ChatLieu;
+    }
 
     @Override
     public String toString() {
-        return "BinhGiuNhiet{" + "id=" + id + ", ma=" + ma + ", namSanXuat=" + namSanXuat + ", dungTich=" + dungTich + ", ten=" + ten + ", url=" + url + '}';
+        return "BinhGiuNhiet{" + "id=" + id + ", ma=" + ma + ", namSanXuat=" + namSanXuat + ", dungTich=" + dungTich + ", ten=" + ten + ", url=" + url + ", thuongHieu=" + thuongHieu + ", ChatLieu=" + ChatLieu + '}';
     }
-    
+
     
 }
