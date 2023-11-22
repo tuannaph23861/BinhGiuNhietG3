@@ -25,47 +25,47 @@ public class MauSac {
     private int id;
 
     @Column(name = "MaMauSac")
-    private String maMS;
+    private String maMauSac;
 
     @Column(name = "Ten")
-    private String tenMS;
+    private String ten;
 
     public MauSac() {
     }
 
-    @Override
-    public String toString() {
-        return "MauSac{" + "id=" + id + ", maMS=" + maMS + ", tenMS=" + tenMS + '}';
+    public MauSac(int id, String maMauSac, String ten) {
+        this.id = id;
+        this.maMauSac = maMauSac;
+        this.ten = ten;
     }
 
     public int getId() {
         return id;
     }
 
+    public String getMaMauSac() {
+        return maMauSac;
+    }
+
+    public void setMaMauSac(String maMauSac) {
+        this.maMauSac = maMauSac;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getMaMS() {
-        return maMS;
+    public String getTen() {
+        return ten;
     }
 
-    public void setMaMS(String maMS) {
-        this.maMS = maMS;
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 
-    public String getTenMS() {
-        return tenMS;
-    }
-
-    public void setTenMS(String tenMS) {
-        this.tenMS = tenMS;
-    }
-
-    public MauSac(int id, String maMS, String tenMS) {
-        this.id = id;
-        this.maMS = maMS;
-        this.tenMS = tenMS;
+    @Override
+    public String toString() {
+        return "MauSac{" + "id=" + id + ", maChatLieu=" + maMauSac + ", ten=" + ten + '}';
     }
 
   

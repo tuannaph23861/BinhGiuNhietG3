@@ -29,7 +29,7 @@ public class BinhGiuNhietChiTiet {
     private BigDecimal giaBan;
     
     @Column(name = "TrangThai")
-    private byte trangThai;
+    private Boolean trangThai;
     
     @ManyToOne
     @JoinColumn(name = "IdMauSac")
@@ -42,7 +42,7 @@ public class BinhGiuNhietChiTiet {
     public BinhGiuNhietChiTiet() {
     }
 
-    public BinhGiuNhietChiTiet(int id, int soLuong, BigDecimal giaNhap, BigDecimal giaBan, byte trangThai, MauSac mauSac, BinhGiuNhiet binhGiuNhiet) {
+    public BinhGiuNhietChiTiet(int id, int soLuong, BigDecimal giaNhap, BigDecimal giaBan, Boolean trangThai, MauSac mauSac, BinhGiuNhiet binhGiuNhiet) {
         this.id = id;
         this.soLuong = soLuong;
         this.giaNhap = giaNhap;
@@ -84,11 +84,11 @@ public class BinhGiuNhietChiTiet {
         this.giaBan = giaBan;
     }
 
-    public byte getTrangThai() {
+    public Boolean getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(byte trangThai) {
+    public void setTrangThai(Boolean trangThai) {
         this.trangThai = trangThai;
     }
 

@@ -24,8 +24,8 @@ public class ThuongHieu {
     @Column(name = "Id")
     private int id;
 
-    @Column(name = "MaThuongHieu")
-    private String  maTH;
+    @Column(name = "MaChatLieu")
+    private String maChatLieu;
 
     @Column(name = "Ten")
     private String tenTH;
@@ -33,7 +33,7 @@ public class ThuongHieu {
     public ThuongHieu() {
     }
 
-    public ThuongHieu(int id, String maTH, String tenTH) {
+    public ThuongHieu(int id, String maChatLieu, int ten) {
         this.id = id;
         this.maTH = maTH;
         this.tenTH = tenTH;
@@ -47,12 +47,12 @@ public class ThuongHieu {
         this.id = id;
     }
 
-    public String getMaTH() {
-        return maTH;
+    public String getMaChatLieu() {
+        return maChatLieu;
     }
 
-    public void setMaTH(String maTH) {
-        this.maTH = maTH;
+    public void setMaChatLieu(String maChatLieu) {
+        this.maChatLieu = maChatLieu;
     }
 
     public String getTenTH() {
