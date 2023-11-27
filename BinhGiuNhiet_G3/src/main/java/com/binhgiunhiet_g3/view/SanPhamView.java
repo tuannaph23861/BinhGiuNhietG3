@@ -62,9 +62,10 @@ public class SanPhamView extends javax.swing.JFrame {
         this.listTH = this.ths.getAll();
         for(ThuongHieu th1 : listTH){
             model.addRow(new Object[]{
-                th1.getMaTH(),
-                th1.getTenTH()
+                th1.getMaThuongHieu(),
+                th1.getTen()
             });
+            System.out.println(th1.toString());
         }
     }
     
@@ -86,8 +87,8 @@ public class SanPhamView extends javax.swing.JFrame {
         this.listMS = this.mss.getAll();
         for(MauSac ms : listMS){
             model.addRow(new Object[]{
-                ms.getMaMS(),
-                ms.getTenMS()
+                ms.getMaMauSac(),
+                ms.getTen()
             });
         }
     }
@@ -526,7 +527,8 @@ public class SanPhamView extends javax.swing.JFrame {
             this.cls.add(ch);
         }else{
             this.mss.add(ms);
-        }
+        };
+        loadTableTH();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

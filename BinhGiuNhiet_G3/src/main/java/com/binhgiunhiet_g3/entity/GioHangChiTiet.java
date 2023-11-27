@@ -28,13 +28,11 @@ public class GioHangChiTiet {
     
      @Column(name = "SoLuong")
     private int soLuong;
+    
     @ManyToOne
-    @JoinColumn(name = "IdBinhGiuNhietChiTiet")
-
-    private int idBinhGiuNhietChiTiet;
-    @ManyToOne
-
+    @JoinColumn(name ="IdBinhGiuNhietChiTiet")
     private BinhGiuNhietChiTiet binhGiuNhietChiTiet;
+    
      @ManyToOne
     @JoinColumn(name = "IdGioHang")
     private GioHang gioHang;
