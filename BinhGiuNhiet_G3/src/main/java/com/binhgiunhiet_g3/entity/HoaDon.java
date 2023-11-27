@@ -43,28 +43,28 @@ public class HoaDon {
 
     @ManyToOne
     @JoinColumn(name = "IdKhachHang")
-    private int idKhachHang;
+    private KhachHang khachHang;
 
     @ManyToOne
     @JoinColumn(name = "IdNhanVien")
-    private int idNhanVien;
+    private NhanVien nhanVien;
 
     @ManyToOne
     @JoinColumn(name = "IdKhuyenMai")
-    private int idKhuyenMai;
+    private KhuyenMai khuyenMai;
 
     public HoaDon() {
     }
 
-    public HoaDon(int id, int maHoaDon, float tienSauGiamGia, float thanhTien, int phuongThucThanhToan, int idKhachHang, int idNhanVien, int idKhuyenMai) {
+    public HoaDon(int id, int maHoaDon, float tienSauGiamGia, float thanhTien, int phuongThucThanhToan, KhachHang khachHang, NhanVien nhanVien, KhuyenMai khuyenMai) {
         this.id = id;
         this.maHoaDon = maHoaDon;
         this.tienSauGiamGia = tienSauGiamGia;
         this.thanhTien = thanhTien;
         this.phuongThucThanhToan = phuongThucThanhToan;
-        this.idKhachHang = idKhachHang;
-        this.idNhanVien = idNhanVien;
-        this.idKhuyenMai = idKhuyenMai;
+        this.khachHang = khachHang;
+        this.nhanVien = nhanVien;
+        this.khuyenMai = khuyenMai;
     }
 
     public int getId() {
@@ -107,35 +107,34 @@ public class HoaDon {
         this.phuongThucThanhToan = phuongThucThanhToan;
     }
 
-    public int getIdKhachHang() {
-        return idKhachHang;
+    public KhachHang getKhachHang() {
+        return khachHang;
     }
 
-    public void setIdKhachHang(int idKhachHang) {
-        this.idKhachHang = idKhachHang;
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
     }
 
-    public int getIdNhanVien() {
-        return idNhanVien;
+    public NhanVien getNhanVien() {
+        return nhanVien;
     }
 
-    public void setIdNhanVien(int idNhanVien) {
-        this.idNhanVien = idNhanVien;
+    public void setNhanVien(NhanVien nhanVien) {
+        this.nhanVien = nhanVien;
     }
 
-    public int getIdKhuyenMai() {
-        return idKhuyenMai;
+    public KhuyenMai getKhuyenMai() {
+        return khuyenMai;
     }
 
-    public void setIdKhuyenMai(int idKhuyenMai) {
-        this.idKhuyenMai = idKhuyenMai;
+    public void setKhuyenMai(KhuyenMai khuyenMai) {
+        this.khuyenMai = khuyenMai;
     }
 
     @Override
     public String toString() {
-        return "HoaDon{" + "id=" + id + ", maHoaDon=" + maHoaDon + ", tienSauGiamGia=" + tienSauGiamGia + ", thanhTien=" + thanhTien + ", phuongThucThanhToan=" + phuongThucThanhToan + ", idKhachHang=" + idKhachHang + ", idNhanVien=" + idNhanVien + ", idKhuyenMai=" + idKhuyenMai + '}';
+        return "HoaDon{" + "id=" + id + ", maHoaDon=" + maHoaDon + ", tienSauGiamGia=" + tienSauGiamGia + ", thanhTien=" + thanhTien + ", phuongThucThanhToan=" + phuongThucThanhToan + ", khachHang=" + khachHang + ", nhanVien=" + nhanVien + ", khuyenMai=" + khuyenMai + '}';
     }
-    
-    
 
+    
 }

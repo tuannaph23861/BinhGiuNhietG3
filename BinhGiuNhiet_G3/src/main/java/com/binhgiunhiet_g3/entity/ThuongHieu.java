@@ -25,17 +25,17 @@ public class ThuongHieu {
     private int id;
 
     @Column(name = "MaThuongHieu")
-    private int maChatLieu;
+    private String maThuongHieu;
 
     @Column(name = "Ten")
-    private int ten;
+    private String ten;
 
     public ThuongHieu() {
     }
 
-    public ThuongHieu(int id, int maChatLieu, int ten) {
+    public ThuongHieu(int id, String maThuongHieu, String ten) {
         this.id = id;
-        this.maChatLieu = maChatLieu;
+        this.maThuongHieu = maThuongHieu;
         this.ten = ten;
     }
 
@@ -47,25 +47,26 @@ public class ThuongHieu {
         this.id = id;
     }
 
-    public int getMaChatLieu() {
-        return maChatLieu;
+    public String getMaThuongHieu() {
+        return maThuongHieu;
     }
 
-    public void setMaChatLieu(int maChatLieu) {
-        this.maChatLieu = maChatLieu;
+    public void setMaThuongHieu(String maThuongHieu) {
+        this.maThuongHieu = maThuongHieu;
     }
 
-    public int getTen() {
+    public String getTen() {
         return ten;
     }
 
-    public void setTen(int ten) {
+    public void setTen(String ten) {
         this.ten = ten;
     }
 
     @Override
     public String toString() {
-        return "ThuongHieu{" + "id=" + id + ", maChatLieu=" + maChatLieu + ", ten=" + ten + '}';
+        return "ThuongHieu{" + "id=" + id + ", maThuongHieu=" + maThuongHieu + ", ten=" + ten + '}';
     }
-
+    
+    
 }

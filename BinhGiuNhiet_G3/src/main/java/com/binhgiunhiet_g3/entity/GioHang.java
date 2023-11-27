@@ -37,17 +37,17 @@ public class GioHang {
     
     @ManyToOne
     @JoinColumn(name = "IdKhachHang")
-    private KhachHang idKH;
+    private KhachHang khachHang;
 
     public GioHang() {
     }
 
-    public GioHang(int id, String maGH, Date ngayTao, Boolean trangThai, KhachHang idKH) {
+    public GioHang(int id, String maGH, Date ngayTao, Boolean trangThai, KhachHang khachHang) {
         this.id = id;
         this.maGH = maGH;
         this.ngayTao = ngayTao;
         this.trangThai = trangThai;
-        this.idKH = idKH;
+        this.khachHang = khachHang;
     }
 
     public int getId() {
@@ -82,15 +82,18 @@ public class GioHang {
         this.trangThai = trangThai;
     }
 
-    public KhachHang getIdKH() {
-        return idKH;
+    public KhachHang getKhachHang() {
+        return khachHang;
     }
 
-    public void setIdKH(KhachHang idKH) {
-        this.idKH = idKH;
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
     }
 
-   
-    
+    @Override
+    public String toString() {
+        return "GioHang{" + "id=" + id + ", maGH=" + maGH + ", ngayTao=" + ngayTao + ", trangThai=" + trangThai + ", khachHang=" + khachHang + '}';
+    }
+
     
 }

@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
  * @author dungd
  */
 @Entity
-@Table(name = "GioHangChiTiet")
+@Table(name = "ChiTietGioHang")
 public class GioHangChiTiet {
 
     @Id
@@ -30,19 +30,19 @@ public class GioHangChiTiet {
     private int soLuong;
     @ManyToOne
     @JoinColumn(name = "IdBinhGiuNhietChiTiet")
-    private int idBinhGiuNhietChiTiet;
+    private BinhGiuNhietChiTiet binhGiuNhietChiTiet;
      @ManyToOne
     @JoinColumn(name = "IdGioHang")
-    private int idGioHang;
+    private GioHang gioHang;
 
     public GioHangChiTiet() {
     }
 
-    public GioHangChiTiet(int id, int soLuong, int idBinhGiuNhietChiTiet, int idGioHang) {
+    public GioHangChiTiet(int id, int soLuong, BinhGiuNhietChiTiet binhGiuNhietChiTiet, GioHang gioHang) {
         this.id = id;
         this.soLuong = soLuong;
-        this.idBinhGiuNhietChiTiet = idBinhGiuNhietChiTiet;
-        this.idGioHang = idGioHang;
+        this.binhGiuNhietChiTiet = binhGiuNhietChiTiet;
+        this.gioHang = gioHang;
     }
 
     public int getId() {
@@ -61,25 +61,25 @@ public class GioHangChiTiet {
         this.soLuong = soLuong;
     }
 
-    public int getIdBinhGiuNhietChiTiet() {
-        return idBinhGiuNhietChiTiet;
+    public BinhGiuNhietChiTiet getBinhGiuNhietChiTiet() {
+        return binhGiuNhietChiTiet;
     }
 
-    public void setIdBinhGiuNhietChiTiet(int idBinhGiuNhietChiTiet) {
-        this.idBinhGiuNhietChiTiet = idBinhGiuNhietChiTiet;
+    public void setBinhGiuNhietChiTiet(BinhGiuNhietChiTiet binhGiuNhietChiTiet) {
+        this.binhGiuNhietChiTiet = binhGiuNhietChiTiet;
     }
 
-    public int getIdGioHang() {
-        return idGioHang;
+    public GioHang getGioHang() {
+        return gioHang;
     }
 
-    public void setIdGioHang(int idGioHang) {
-        this.idGioHang = idGioHang;
+    public void setGioHang(GioHang gioHang) {
+        this.gioHang = gioHang;
     }
 
     @Override
     public String toString() {
-        return "GioHangChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", idBinhGiuNhietChiTiet=" + idBinhGiuNhietChiTiet + ", idGioHang=" + idGioHang + '}';
+        return "GioHangChiTiet{" + "id=" + id + ", soLuong=" + soLuong + ", binhGiuNhietChiTiet=" + binhGiuNhietChiTiet + ", gioHang=" + gioHang + '}';
     }
     
 
