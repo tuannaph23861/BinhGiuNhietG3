@@ -9,66 +9,63 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.Date;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
- * @author ADMIN
+ * @author PC
  */
 @Entity
 @Table(name = "NhanVien")
+
 public class NhanVien {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Id")
+    @Column(name = "Id")
     private int id;
     
-    @Column(name = "MaNhanVien")
-    private String maNV;
+    @Column(name = "MaNhanVien ")
+    private String ma;
     
-    @Column(name = "Ten")
+    @Column(name = "Ten ")
     private String ten;
     
-    @Column(name ="NgaySinh")
-    private Date ngaySinh;
-    
-    @Column(name ="ChucVu")
-    private Boolean chucVu;
-    
-    @Column(name ="SoDienThoai")
-    private String sdt;
-    
-    @Column(name ="Email")
-    private String email;
-    
-    @Column(name ="GioiTinh")
+    @Column(name = "GioiTInh ")
     private Boolean gioiTinh;
-    
-    @Column(name ="DiaChi")
+    @Column(name = "NgaySinh ")
+    private Date ngaySinh;
+    @Column(name = "DiaChi ")
     private String diaChi;
-    
-    @Column(name ="MatKhau")
+    @Column(name = "MatKhau ")
     private String matKhau;
-    
-    @Column(name ="TrangThai")
+    @Column(name = "Email ")
+    private String email;
+    @Column(name = "ChucVu ")
+    private int chucVu;
+    @Column(name = "SoDienThoai ")
+    private String sdt;
+    @Column(name = "TrangThai ")
     private Boolean trangThai;
 
     public NhanVien() {
     }
 
-    public NhanVien(int id, String maNV, String ten, Date ngaySinh, Boolean chucVu, String sdt, String email, Boolean gioiTinh, String diaChi, String matKhau, Boolean trangThai) {
+    public NhanVien(int id, String ma, String ten, Boolean gioiTinh, Date ngaySinh, String diaChi, String matKhau, String email, int chucVu, String sdt, Boolean trangThai) {
         this.id = id;
-        this.maNV = maNV;
+        this.ma = ma;
         this.ten = ten;
-        this.ngaySinh = ngaySinh;
-        this.chucVu = chucVu;
-        this.sdt = sdt;
-        this.email = email;
         this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
         this.diaChi = diaChi;
         this.matKhau = matKhau;
+        this.email = email;
+        this.chucVu = chucVu;
+        this.sdt = sdt;
         this.trangThai = trangThai;
     }
 
@@ -80,12 +77,12 @@ public class NhanVien {
         this.id = id;
     }
 
-    public String getMaNV() {
-        return maNV;
+    public String getMa() {
+        return ma;
     }
 
-    public void setMaNV(String maNV) {
-        this.maNV = maNV;
+    public void setMa(String ma) {
+        this.ma = ma;
     }
 
     public String getTen() {
@@ -96,44 +93,20 @@ public class NhanVien {
         this.ten = ten;
     }
 
-    public Date getNgaySinh() {
-        return ngaySinh;
-    }
-
-    public void setNgaySinh(Date ngaySinh) {
-        this.ngaySinh = ngaySinh;
-    }
-
-    public Boolean getChucVu() {
-        return chucVu;
-    }
-
-    public void setChucVu(Boolean chucVu) {
-        this.chucVu = chucVu;
-    }
-
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Boolean getGioiTinh() {
         return gioiTinh;
     }
 
     public void setGioiTinh(Boolean gioiTinh) {
         this.gioiTinh = gioiTinh;
+    }
+
+    public Date getNgaySinh() {
+        return ngaySinh;
+    }
+
+    public void setNgaySinh(Date ngaySinh) {
+        this.ngaySinh = ngaySinh;
     }
 
     public String getDiaChi() {
@@ -152,6 +125,30 @@ public class NhanVien {
         this.matKhau = matKhau;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getChucVu() {
+        return chucVu;
+    }
+
+    public void setChucVu(int chucVu) {
+        this.chucVu = chucVu;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
     public Boolean getTrangThai() {
         return trangThai;
     }
@@ -159,6 +156,33 @@ public class NhanVien {
     public void setTrangThai(Boolean trangThai) {
         this.trangThai = trangThai;
     }
+ public Object[] toRowData() {
+        return new Object[]{
+            id, ma, ten, gioiTinhNV(), ngaySinh,diaChi,matKhau,email,chucVuNV(),sdt,trangThaiNV()
+        };
+    }
+ public String trangThaiNV() {
+        if (trangThai == true) {
+            return "Đang Đi Làm";
+        } else {
+            return "Nghỉ Phép";
+        }
+    }
+ public String gioiTinhNV() {
+        if (gioiTinh == true) {
+            return "Nam";
+        } else {
+            return "Nữ";
+        }
+    }
+  public String chucVuNV() {
+        if (chucVu == 1) {
+            return "Admin";
+        } else {
+            return "Nhân Viên";
+        }
+    }
+ 
     
     
 }
