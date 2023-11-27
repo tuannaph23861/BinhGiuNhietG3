@@ -74,7 +74,7 @@ public class Home extends javax.swing.JFrame {
         lblKhachHang = new javax.swing.JLabel();
         lblNhanVien = new javax.swing.JLabel();
         lblThongKe = new javax.swing.JLabel();
-        btnLogOut = new javax.swing.JLabel();
+        lblLogOut = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         pnlCards = new javax.swing.JPanel();
         pnlCard1 = new javax.swing.JPanel();
@@ -238,18 +238,18 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        btnLogOut.setBackground(new java.awt.Color(204, 255, 255));
-        btnLogOut.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnLogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnLogOut.setText("Đăng Xuất");
-        btnLogOut.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnLogOut.setOpaque(true);
-        btnLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblLogOut.setBackground(new java.awt.Color(204, 255, 255));
+        lblLogOut.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblLogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogOut.setText("Đăng Xuất");
+        lblLogOut.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblLogOut.setOpaque(true);
+        lblLogOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnLogOutMouseEntered(evt);
+                lblLogOutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnLogOutMouseExited(evt);
+                lblLogOutMouseExited(evt);
             }
         });
 
@@ -272,7 +272,7 @@ public class Home extends javax.swing.JFrame {
             .addComponent(lblTaiKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblThongKe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnMenuLayout.setVerticalGroup(
             pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,7 +296,7 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -547,76 +547,76 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblKhachHangMouseClicked
 
     private void lblBanHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBanHangMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblBanHang.setBackground(Color.white);
     }//GEN-LAST:event_lblBanHangMouseEntered
 
     private void lblBanHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBanHangMouseExited
-        // TODO add your handling code here:
+        lblBanHang.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblBanHangMouseExited
 
     private void lblSanPhamMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSanPhamMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblSanPham.setBackground(Color.white);
     }//GEN-LAST:event_lblSanPhamMouseEntered
 
     private void lblSanPhamMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSanPhamMouseExited
-        // TODO add your handling code here:
+        lblSanPham.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblSanPhamMouseExited
 
     private void lblHoaDonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoaDonMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblHoaDon.setBackground(Color.white);
     }//GEN-LAST:event_lblHoaDonMouseEntered
 
     private void lblHoaDonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoaDonMouseExited
-        // TODO add your handling code here:
+        lblHoaDon.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblHoaDonMouseExited
 
     private void lblGiamGiaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGiamGiaMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblGiamGia.setBackground(Color.white);
     }//GEN-LAST:event_lblGiamGiaMouseEntered
 
     private void lblGiamGiaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGiamGiaMouseExited
-        // TODO add your handling code here:
+        lblGiamGia.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblGiamGiaMouseExited
 
     private void lblKhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKhachHangMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblKhachHang.setBackground(Color.white);
     }//GEN-LAST:event_lblKhachHangMouseEntered
 
     private void lblKhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKhachHangMouseExited
-        // TODO add your handling code here:
+        lblKhachHang.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblKhachHangMouseExited
 
     private void lblTaiKhoanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTaiKhoanMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblTaiKhoan.setBackground(Color.white);
     }//GEN-LAST:event_lblTaiKhoanMouseEntered
 
     private void lblTaiKhoanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTaiKhoanMouseExited
-        // TODO add your handling code here:
+        lblTaiKhoan.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblTaiKhoanMouseExited
 
     private void lblNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblNhanVien.setBackground(Color.white);
     }//GEN-LAST:event_lblNhanVienMouseEntered
 
     private void lblNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMouseExited
-        // TODO add your handling code here:
+        lblNhanVien.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblNhanVienMouseExited
 
     private void lblThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseEntered
-        lblBanHang.setBackground(Color.red);
+        lblThongKe.setBackground(Color.white);
     }//GEN-LAST:event_lblThongKeMouseEntered
 
     private void lblThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseExited
-        // TODO add your handling code here:
+        lblThongKe.setBackground(new Color(204, 255, 255));
     }//GEN-LAST:event_lblThongKeMouseExited
 
-    private void btnLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogOutMouseEntered
-        lblBanHang.setBackground(Color.red);
-    }//GEN-LAST:event_btnLogOutMouseEntered
+    private void lblLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogOutMouseEntered
+        lblLogOut.setBackground(Color.white);
+    }//GEN-LAST:event_lblLogOutMouseEntered
 
-    private void btnLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogOutMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogOutMouseExited
+    private void lblLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogOutMouseExited
+        lblLogOut.setBackground(new Color(204, 255, 255));
+    }//GEN-LAST:event_lblLogOutMouseExited
 
     /**
      * @param args the command line arguments
@@ -655,7 +655,6 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
-    private javax.swing.JLabel btnLogOut;
     private javax.swing.JButton btnSuaKhachHang;
     private javax.swing.JButton btnThemKhachHang;
     private javax.swing.JButton btnTimKiem;
@@ -680,6 +679,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel lblGiamGia;
     private javax.swing.JLabel lblHoaDon;
     private javax.swing.JLabel lblKhachHang;
+    private javax.swing.JLabel lblLogOut;
     private javax.swing.JLabel lblNhanVien;
     private javax.swing.JLabel lblSanPham;
     private javax.swing.JLabel lblTaiKhoan;

@@ -64,7 +64,7 @@
               <Component id="lblTaiKhoan" alignment="0" max="32767" attributes="0"/>
               <Component id="lblNhanVien" alignment="0" max="32767" attributes="0"/>
               <Component id="lblThongKe" alignment="0" max="32767" attributes="0"/>
-              <Component id="btnLogOut" alignment="0" max="32767" attributes="0"/>
+              <Component id="lblLogOut" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -89,7 +89,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblThongKe" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Component id="btnLogOut" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="lblLogOut" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -275,7 +275,7 @@
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblThongKeMouseExited"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="btnLogOut">
+        <Component class="javax.swing.JLabel" name="lblLogOut">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="cc" type="rgb"/>
@@ -293,8 +293,8 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLogOutMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLogOutMouseExited"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblLogOutMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblLogOutMouseExited"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
