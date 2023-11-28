@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.util.Date;
 
 /**
  *
@@ -38,8 +39,9 @@ public class HoaDon {
     
     @Column(name = "PhuongThucThanhToan")
     private int phuongThucThanhToan;
-//     @Column(name="NgayThanhToan")
-//    private date ngayThanhToan ;
+    
+     @Column(name="NgayThanhToan")
+    private Date ngayThanhToan ;
 
     @ManyToOne
     @JoinColumn(name = "IdKhachHang")
