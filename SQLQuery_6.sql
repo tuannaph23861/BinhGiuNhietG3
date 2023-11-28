@@ -1,6 +1,7 @@
 CREATE DATABASE BinhDuNhietG3
 --Use master
 --Drop database BinhDuNhietG3
+
 Go
 USE BinhDuNhietG3
 CREATE TABLE MauSac(
@@ -14,13 +15,19 @@ CREATE TABLE KHUYENMAI
     Id int IDENTITY PRIMARY KEY,
     MaKhuyenMai VARCHAR(10),
     GiaTri INT,
-    NgayBatDau datetime2,
-    NgayKetThuc datetime2,
+    NgayBatDau date,
+    NgayKetThuc date,
     KieuGiamGia int,
     TrangThai int
 )
-
-
+Insert into KhuyenMai Values
+('KM01',20,'2023/04/12','2023/05/15',0,1),
+('KM02',40,'2023/03/11','2023/09/20',1,1),
+('KM03',50,'2023/02/22','2023/12/11',0,0)
+select * from KhuyenMai
+delete KhuyenMai where Id =8
+delete KhuyenMai where Id =9
+delete KhuyenMai where Id =10
 CREATE TABLE ThuongHieu(
 Id int IDENTITY PRIMARY KEY,
 MaThuongHieu VARCHAR(10),
