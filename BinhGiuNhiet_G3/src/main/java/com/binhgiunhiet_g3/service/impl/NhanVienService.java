@@ -4,7 +4,6 @@
  */
 package com.binhgiunhiet_g3.service.impl;
 
-
 import com.binhgiunhiet_g3.entity.NhanVien;
 import com.binhgiunhiet_g3.repository.NhanVienRepository;
 import com.binhgiunhiet_g3.service.IManageNhanVienService;
@@ -23,12 +22,14 @@ public class NhanVienService implements IManageNhanVienService {
 
     @Override
     public List<NhanVien> getAll() {
-   return nhanVienRepo.getAll();
-     
+        return nhanVienRepo.getAll();
+
     }
 
-    
-    
+    @Override
+    public boolean add(NhanVien nhanVien) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     @Override
     public boolean update(NhanVien nhanVien) {
@@ -41,14 +42,8 @@ public class NhanVienService implements IManageNhanVienService {
     }
 
     @Override
- public boolean add(NhanVien nv) {
-        
-        try {
-            return nhanVienRepo.add(nv);
-        } catch (Exception e) {
-            return false;
-        }
+    public NhanVien findByMa(String ma) {
+        return this.nhanVienRepo.findByMa(ma);
     }
+
 }
-
-

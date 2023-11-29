@@ -4,8 +4,10 @@
  */
 package com.binhgiunhiet_g3.repository;
 
+import com.binhgiunhiet_g3.entity.KhachHang;
 import com.binhgiunhiet_g3.entity.NhanVien;
 import com.binhgiunhiet_g3.utils.HibernateUtil;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -25,7 +27,7 @@ public class NhanVienRepository {
 
     public List<NhanVien> getAll() {
 
-        try (Session session = HibernateUtil.getFACTORY().openSession();) {
+        try ( Session session = HibernateUtil.getFACTORY().openSession();) {
             Query q = session.createQuery("FROM NhanVien WHERE TrangThai = 1");
             List<NhanVien> nhanViens = q.getResultList();
             return nhanViens;
@@ -51,4 +53,17 @@ public class NhanVienRepository {
         return false;
 
     }
+
+    public NhanVien findByMa(String ma) {
+        try {
+            String hql = "SELECT obj FROM NhanVien obj WHERE obj.ma = ?1";
+            TypedQuery<NhanVien> query = this.hSession.createQuery(hql, NhanVien.class);
+            query.setParameter(1, ma);
+            return query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new NhanVien();
+    }
+
 }

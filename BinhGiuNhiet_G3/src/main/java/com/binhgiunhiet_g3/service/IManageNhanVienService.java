@@ -22,4 +22,6 @@ public interface IManageNhanVienService {
     boolean update(NhanVien nhanVien);
 
     boolean delete(NhanVien nhanVien);
+    
+    NhanVien findByMa(String ma);
 }

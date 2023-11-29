@@ -17,4 +17,6 @@ public interface KhachHangService {
     void update(KhachHang binhGiuNhiet);
     
     void delete(KhachHang binhGiuNhiet);
+    
+    KhachHang findByMa(String ma);
 }

@@ -41,4 +41,9 @@ public class KhachHangServiceImpl implements KhachHangService {
     public void delete(KhachHang khachHang) {
         this.khachHangRepository.delete(khachHang);
     }
+
+    @Override
+    public KhachHang findByMa(String ma) {
+        return this.khachHangRepository.findByMa(ma);
+    }
 }

@@ -51,30 +51,29 @@ public class KhachHangRepository {
             transaction.rollback();
         }
     }
-    public void delete(KhachHang khachHang)
-    {
+
+    public void delete(KhachHang khachHang) {
         Transaction transaction = this.hSession.getTransaction();
         try {
             transaction.begin();
             this.hSession.delete(khachHang);
             transaction.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
     }
-    public List<KhachHang> findALL()
-    {
-         String hql = "SELECT obj FROM KhachHang obj";
+
+    public List<KhachHang> findALL() {
+        String hql = "SELECT obj FROM KhachHang obj";
         TypedQuery<KhachHang> query = this.hSession.createQuery(hql, KhachHang.class);
         return query.getResultList();
     }
-    public KhachHang findByMa(String ma)
-    {
-        String hql = "SELECT obj FROM KhachHang obj WHERE obj.Ma = ?1";
+
+    public KhachHang findByMa(String ma) {
+        String hql = "SELECT obj FROM KhachHang obj WHERE obj.ma = ?1";
         TypedQuery<KhachHang> query = this.hSession.createQuery(hql, KhachHang.class);
         query.setParameter(1, ma);
         return query.getSingleResult();
     }
-    }
-
+}
