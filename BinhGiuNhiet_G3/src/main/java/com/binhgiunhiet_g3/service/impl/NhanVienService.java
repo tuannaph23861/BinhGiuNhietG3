@@ -33,7 +33,7 @@ public class NhanVienService implements IManageNhanVienService {
 
     @Override
     public boolean update(NhanVien nhanVien) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return this.nhanVienRepo.update(nhanVien);
     }
 
     @Override

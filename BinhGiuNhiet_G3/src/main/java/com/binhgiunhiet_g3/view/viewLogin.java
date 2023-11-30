@@ -9,6 +9,8 @@ import com.binhgiunhiet_g3.service.IManageNhanVienService;
 import com.binhgiunhiet_g3.service.impl.NhanVienService;
 import com.binhgiunhiet_g3.utils.MsgBox;
 import java.awt.Cursor;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,20 +18,25 @@ import java.awt.Cursor;
  */
 public class viewLogin extends javax.swing.JFrame {
 
+    List<NhanVien> listNV;
+    private IManageNhanVienService nvSer;
+
     /**
      * Creates new form viewQuenMatKhau
      */
     public viewLogin() {
         initComponents();
         this.setTitle("Đăng Nhập");
+        nvSer = new NhanVienService();
+        listNV = new ArrayList<>();
+//        listNV = nvSer.getAll();
         this.setLocationRelativeTo(null);
     }
 
     private void logIn() {
         String ma = txtUser.getText();
         String pass = new String(txtPass.getPassword());
-        IManageNhanVienService nvService = new NhanVienService();
-        NhanVien nhanVien = nvService.findByMa(ma);
+        NhanVien nhanVien = nvSer.findByMa(ma);
         System.out.println(nhanVien.toString());
         if (ma.isEmpty()) {
             MsgBox.alert(this, "Không được để tài khoản trống!");
@@ -41,10 +48,11 @@ public class viewLogin extends javax.swing.JFrame {
             MsgBox.alert(this, "Sai Mật Khẩu!");
         } else {
             MsgBox.alert(this, "Đăng Nhập Thành Công!");
-            Home home = new Home();
-            home.setVisible(true);
+            new Home(nhanVien).setVisible(true);
             this.dispose();
+
         }
+
     }
 
     void hienThiMatKhau() {
@@ -186,7 +194,7 @@ public class viewLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblForgotMouseMoved
 
     private void lblForgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotMouseClicked
-        ForgotPassDialog fgDia = new ForgotPassDialog(this, true);
+        QuenMatKhau fgDia = new QuenMatKhau();
         this.setVisible(false);
         fgDia.setVisible(true);
     }//GEN-LAST:event_lblForgotMouseClicked

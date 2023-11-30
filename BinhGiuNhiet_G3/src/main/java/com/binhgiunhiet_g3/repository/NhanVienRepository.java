@@ -54,6 +54,20 @@ public class NhanVienRepository {
 
     }
 
+    public boolean update(NhanVien nhanVien) {
+        Transaction transaction = this.hSession.getTransaction();
+        try {
+            transaction.begin();
+            this.hSession.merge(nhanVien);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }
+        return false;
+    }
+
     public NhanVien findByMa(String ma) {
         try {
             String hql = "SELECT obj FROM NhanVien obj WHERE obj.ma = ?1";

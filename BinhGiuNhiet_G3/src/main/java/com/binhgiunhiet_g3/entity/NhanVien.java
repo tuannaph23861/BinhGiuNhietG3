@@ -176,11 +176,16 @@ public class NhanVien {
         }
     }
   public String chucVuNV() {
-        if (chucVu == 1) {
+        if (chucVu == 0) {
             return "Admin";
         } else {
             return "Nhân Viên";
         }
+    }
+
+    @Override
+    public String toString() {
+        return "NhanVien{" + "id=" + id + ", ma=" + ma + ", ten=" + ten + ", gioiTinh=" + gioiTinh + ", ngaySinh=" + ngaySinh + ", diaChi=" + diaChi + ", matKhau=" + matKhau + ", email=" + email + ", chucVu=" + chucVu + ", sdt=" + sdt + ", trangThai=" + trangThai + '}';
     }
  
     

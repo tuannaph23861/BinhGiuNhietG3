@@ -4,20 +4,14 @@
  */
 package com.binhgiunhiet_g3.view;
 
-import com.binhgiunhiet_g3.entity.KhachHang;
 import com.binhgiunhiet_g3.entity.NhanVien;
-import com.binhgiunhiet_g3.service.KhachHangService;
-import com.binhgiunhiet_g3.service.impl.KhachHangServiceImpl;
+import com.binhgiunhiet_g3.service.IManageNhanVienService;
+import com.binhgiunhiet_g3.service.impl.NhanVienService;
 import com.binhgiunhiet_g3.utils.MsgBox;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,26 +20,27 @@ import javax.swing.table.DefaultTableModel;
 public class Home extends javax.swing.JFrame {
 
     private JPanel pnl;
-    DefaultTableModel dtm = new DefaultTableModel();
-    List<KhachHang> listKH = new ArrayList<>();
-    KhachHangService khService = new KhachHangServiceImpl();
-    private NhanVien nhanVien;
-//    CardLayout cardLayout = new CardLayout();
+    private NhanVien nv;
+    private List<NhanVien> listNv = new ArrayList<>();
+    private IManageNhanVienService nvSer = new NhanVienService();
 
     /**
      * Creates new form Home
      */
-    public Home() {
+    public Home(NhanVien nv) {
         initComponents();
         setLocationRelativeTo(null);
+
+        this.nv = nv;
     }
 
     private boolean setQuyen(NhanVien nv) {
-        if (nv.getChucVu() == 0) {
+        if (nv.getChucVu() == 1) {
             MsgBox.alert(this, "Bạn không đủ quyền truy cập!");
             return false;
         } else {
             return true;
+
         }
     }
 
@@ -189,6 +184,9 @@ public class Home extends javax.swing.JFrame {
         lblNhanVien.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblNhanVien.setOpaque(true);
         lblNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNhanVienMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblNhanVienMouseEntered(evt);
             }
@@ -386,11 +384,15 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblLogOutMouseClicked
 
     private void lblSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSanPhamMouseClicked
-        if (setQuyen(nhanVien)) {
+        if (setQuyen(nv)) {
             pnl = new SanPham();
+            System.out.println(nv.toString());
             setPanel(pnl);
         }
     }//GEN-LAST:event_lblSanPhamMouseClicked
+
+    private void lblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMouseClicked
+    }//GEN-LAST:event_lblNhanVienMouseClicked
 
     /**
      * @param args the command line arguments
@@ -420,11 +422,11 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Home().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
