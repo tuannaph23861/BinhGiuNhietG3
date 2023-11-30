@@ -7,6 +7,7 @@ package com.binhgiunhiet_g3.view;
 import java.util.Properties;
 import java.util.Random;
 import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -18,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author dungd
  */
 public class QuenMatKhau extends javax.swing.JFrame {
-    
+
     int randomCode;
 
     /**
@@ -129,37 +130,52 @@ public class QuenMatKhau extends javax.swing.JFrame {
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
         try {
             Random rand = new Random();
-            randomCode = rand.nextInt(999999);
+            int randomCode = rand.nextInt(999999);
+
             String host = "smtp.gmail.com";
             String user = "ccon18878@gmail.com";
-            String pass = "ehyd bkyk qfxp jhrq";
+            String pass = "ehyd bkyk qfxp jhrq"; 
             String to = txtEmail.getText();
             String subject = "Mã xác nhận";
             String message = "Mã xác nhận của bạn là " + randomCode;
             boolean sessionDebug = false;
-            Properties pros = System.getProperties();
-            pros.put("mail.smtp.starttls.enable", "true");
-            pros.put("mail.smtp.host", "host");
-            pros.put("mail.smtp.port", "587");
-            pros.put("mail.smtp.auth", "true");
-            pros.put("mail.smtp.starttls.required", "true");
-            java.security.Security.addProvider(new org.openeuler.com.sun.net.ssl.internal.ssl.Provider());
-            Session mailSession = Session.getDefaultInstance(pros);
+
+            Properties props = new Properties();
+            props.put("mail.smtp.starttls.enable", "false");
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+
+            // Không cần thiết đặt thuộc tính này, có thể gây lỗi
+            // props.put("mail.smtp.starttls.required", "true");
+            // Loại bỏ dòng sau đây, không cần thiết và có thể gây lỗi
+            // java.security.Security.addProvider(new org.openeuler.com.sun.net.ssl.internal.ssl.Provider());
+            Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(user, pass);
+                }
+            });
+
             mailSession.setDebug(sessionDebug);
+
             Message msg = new MimeMessage(mailSession);
             msg.setFrom(new InternetAddress(user));
-            InternetAddress address = (new InternetAddress(to));
-            msg.setRecipient(Message.RecipientType.TO, address);
+            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
             msg.setSubject(subject);
             msg.setText(message);
+
             Transport transport = mailSession.getTransport("smtp");
             transport.connect(host, user, pass);
             transport.sendMessage(msg, msg.getAllRecipients());
             transport.close();
+
             JOptionPane.showMessageDialog(null, "Code đã được gửi");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, ex);
+            ex.printStackTrace(); // Ghi log cho việc debug
+            JOptionPane.showMessageDialog(rootPane, "Gửi mã xác nhận thất bại. Vui lòng thử lại!");
         }
+
 
     }//GEN-LAST:event_btnSendActionPerformed
 
