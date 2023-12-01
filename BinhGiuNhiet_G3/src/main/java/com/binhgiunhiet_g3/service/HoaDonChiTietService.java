@@ -4,10 +4,21 @@
  */
 package com.binhgiunhiet_g3.service;
 
+import com.binhgiunhiet_g3.entity.HoaDonChiTiet;
+import java.util.List;
+
 /**
  *
  * @author dungd
  */
 public interface HoaDonChiTietService {
+    List<HoaDonChiTiet> getAll();
     
+//    List<HoaDonChiTiet> getByIdSanPham(int id);
+    
+    Boolean add(HoaDonChiTiet hoaDonChiTiet);
+    
+    void update(HoaDonChiTiet hoaDonChiTiet);
+    
+    void delete(HoaDonChiTiet hoaDonChiTiet);
 }

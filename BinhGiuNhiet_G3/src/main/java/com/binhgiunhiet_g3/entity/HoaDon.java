@@ -28,7 +28,7 @@ public class HoaDon {
     private int id;
 
     @Column(name = "MaHoaDon")
-    private int maHoaDon;
+    private String maHoaDon;
     
     @Column(name = "TienSauGiamGia")
     private float tienSauGiamGia;
@@ -56,7 +56,7 @@ public class HoaDon {
     public HoaDon() {
     }
 
-    public HoaDon(int id, int maHoaDon, float tienSauGiamGia, float thanhTien, int phuongThucThanhToan, KhachHang khachHang, NhanVien nhanVien, KhuyenMai khuyenMai) {
+    public HoaDon(int id, String maHoaDon, float tienSauGiamGia, float thanhTien, int phuongThucThanhToan, KhachHang khachHang, NhanVien nhanVien, KhuyenMai khuyenMai) {
         this.id = id;
         this.maHoaDon = maHoaDon;
         this.tienSauGiamGia = tienSauGiamGia;
@@ -75,11 +75,11 @@ public class HoaDon {
         this.id = id;
     }
 
-    public int getMaHoaDon() {
+    public String getMaHoaDon() {
         return maHoaDon;
     }
 
-    public void setMaHoaDon(int maHoaDon) {
+    public void setMaHoaDon(String maHoaDon) {
         this.maHoaDon = maHoaDon;
     }
 

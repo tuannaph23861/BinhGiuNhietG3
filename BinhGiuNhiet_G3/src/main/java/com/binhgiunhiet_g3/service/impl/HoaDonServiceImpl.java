@@ -5,6 +5,7 @@
 package com.binhgiunhiet_g3.service.impl;
 
 import com.binhgiunhiet_g3.entity.HoaDon;
+import com.binhgiunhiet_g3.repository.HoaDonRepository;
 import com.binhgiunhiet_g3.service.HoaDonService;
 import java.util.List;
 
@@ -14,23 +15,34 @@ import java.util.List;
  */
 public class HoaDonServiceImpl  implements HoaDonService{
 
+    private HoaDonRepository hoaDonRepository;
+
+    public HoaDonServiceImpl() {
+        hoaDonRepository = new HoaDonRepository();
+    }
+
     @Override
     public List<HoaDon> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.hoaDonRepository.findAll();
     }
 
     @Override
     public void add(HoaDon hoaDon) {
-       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.hoaDonRepository.insert(hoaDon);
     }
 
     @Override
-    public void insert(HoaDon hoaDon) {
-       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void update(HoaDon hoaDon) {
+        this.hoaDonRepository.update(hoaDon);
     }
 
     @Override
     public void delete(HoaDon hoaDon) {
-      //  throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.hoaDonRepository.delete(hoaDon);
+    }
+
+    @Override
+    public HoaDon findByMa(String ma) {
+        return this.hoaDonRepository.findByMa(ma);
     }
 }

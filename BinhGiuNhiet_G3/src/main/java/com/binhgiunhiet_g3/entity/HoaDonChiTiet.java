@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  *
@@ -29,7 +30,7 @@ public class HoaDonChiTiet {
     @Column(name = "SoLuong")
     private int soLuong;
     @Column(name = "DonGia")
-    private float donGia;
+    private BigDecimal donGia;
 
     @ManyToOne
     @JoinColumn(name = "IdHoaDon")
@@ -42,7 +43,7 @@ public class HoaDonChiTiet {
     public HoaDonChiTiet() {
     }
 
-    public HoaDonChiTiet(int id, int soLuong, float donGia, HoaDon hoaDon, BinhGiuNhietChiTiet binhGiuNhietChiTiet) {
+    public HoaDonChiTiet(int id, int soLuong, BigDecimal donGia, HoaDon hoaDon, BinhGiuNhietChiTiet binhGiuNhietChiTiet) {
         this.id = id;
         this.soLuong = soLuong;
         this.donGia = donGia;
@@ -66,11 +67,11 @@ public class HoaDonChiTiet {
         this.soLuong = soLuong;
     }
 
-    public float getDonGia() {
+    public BigDecimal getDonGia() {
         return donGia;
     }
 
-    public void setDonGia(float donGia) {
+    public void setDonGia(BigDecimal donGia) {
         this.donGia = donGia;
     }
 

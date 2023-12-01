@@ -12,11 +12,16 @@ import java.util.List;
  * @author PC
  */
 public interface BinhGiuNhietService {
+
     List<BinhGiuNhiet> getAll();
-    
+
     Boolean add(BinhGiuNhiet binhGiuNhiet);
-    
+
     void update(BinhGiuNhiet binhGiuNhiet);
-    
+
     void delete(BinhGiuNhiet binhGiuNhiet);
+
+    BinhGiuNhiet findByMa(String ma);
+
+    BinhGiuNhiet findById(int id);
 }

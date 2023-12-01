@@ -14,6 +14,8 @@ import java.util.List;
 public interface HoaDonService {
     List<HoaDon>getAll();
     void add(HoaDon hoaDon);
-    void insert(HoaDon hoaDon);
+    void update(HoaDon hoaDon);
     void delete(HoaDon hoaDon);
+        
+    HoaDon findByMa(String ma);
 }

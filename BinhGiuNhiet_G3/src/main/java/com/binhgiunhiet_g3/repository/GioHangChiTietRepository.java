@@ -5,6 +5,9 @@
 package com.binhgiunhiet_g3.repository;
 
 import com.binhgiunhiet_g3.entity.GioHangChiTiet;
+import com.binhgiunhiet_g3.utils.HibernateUtil;
+import jakarta.persistence.TypedQuery;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -16,6 +19,7 @@ public class GioHangChiTietRepository {
     private Session hSession;
 
     public GioHangChiTietRepository() {
+        this.hSession = HibernateUtil.getFACTORY().openSession();
     }
     public void insert(GioHangChiTiet gioHangChiTiet)
     {
@@ -41,5 +45,25 @@ public class GioHangChiTietRepository {
             e.printStackTrace();
             transaction.rollback();
         }
+    }
+    
+    public void update(GioHangChiTiet gioHangChiTiet)
+    {
+        Transaction transaction = this.hSession.getTransaction();
+        try {
+            transaction.begin();
+            this.hSession.merge(gioHangChiTiet);
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }
+    }
+    
+    public List<GioHangChiTiet> findAll()
+    {
+        String hql = "SELECT obj FROM GioHangChiTiet obj";
+        TypedQuery<GioHangChiTiet> query = this.hSession.createQuery(hql, GioHangChiTiet.class);
+        return query.getResultList();
     }
 }

@@ -24,17 +24,19 @@ public class BinhGiuNhietChiTietRepository {
         }
     
 
-    public void insert(BinhGiuNhietChiTiet binhGiuNhietChiTiet)
+    public Boolean insert(BinhGiuNhietChiTiet binhGiuNhietChiTiet)
     {
         Transaction transaction = this.hSession.getTransaction();
         try {
             transaction.begin();
             this.hSession.persist(binhGiuNhietChiTiet);
             transaction.commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
+        return false;
     }
 
     public void update(BinhGiuNhietChiTiet binhGiuNhietChiTiet)

@@ -67,7 +67,7 @@ public class BinhGiuNhietRepository {
         }
     }
 
-    public BinhGiuNhiet findById(String id)
+    public BinhGiuNhiet findById(int id)
     {
         return this.hSession.find(BinhGiuNhiet.class, id);
     }
@@ -81,7 +81,7 @@ public class BinhGiuNhietRepository {
 
     public BinhGiuNhiet findByMa(String ma)
     {
-        String hql = "SELECT obj FROM BinhGiuNhiet obj WHERE obj.Ma = ?1";
+        String hql = "SELECT obj FROM BinhGiuNhiet obj WHERE obj.ma = ?1";
         TypedQuery<BinhGiuNhiet> query = this.hSession.createQuery(hql, BinhGiuNhiet.class);
         query.setParameter(1, ma);
         return query.getSingleResult();

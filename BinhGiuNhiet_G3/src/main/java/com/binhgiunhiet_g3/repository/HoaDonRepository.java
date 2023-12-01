@@ -6,6 +6,8 @@ package com.binhgiunhiet_g3.repository;
 
 import com.binhgiunhiet_g3.entity.HoaDon;
 import com.binhgiunhiet_g3.utils.HibernateUtil;
+import jakarta.persistence.TypedQuery;
+import java.util.List;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -55,5 +57,20 @@ public class HoaDonRepository {
             e.printStackTrace();
             transaction.rollback();
         }
+    }
+     
+         public List<HoaDon> findAll()
+    {
+        String hql = "SELECT obj FROM HoaDon obj";
+        TypedQuery<HoaDon> query = this.hSession.createQuery(hql, HoaDon.class);
+        return query.getResultList();
+    }
+
+    public HoaDon findByMa(String ma)
+    {
+        String hql = "SELECT obj FROM HoaDon obj WHERE obj.maHoaDon = ?1";
+        TypedQuery<HoaDon> query = this.hSession.createQuery(hql, HoaDon.class);
+        query.setParameter(1, ma);
+        return query.getSingleResult();
     }
 }

@@ -5,6 +5,7 @@
 package com.binhgiunhiet_g3.service.impl;
 
 import com.binhgiunhiet_g3.entity.GioHangChiTiet;
+import com.binhgiunhiet_g3.repository.GioHangChiTietRepository;
 import com.binhgiunhiet_g3.service.GioHangChiTietService;
 import java.util.List;
 
@@ -14,24 +15,27 @@ import java.util.List;
  */
 public class GioHangChiTietServiceIpml implements GioHangChiTietService{
 
+    private GioHangChiTietRepository chiTietRepository = new GioHangChiTietRepository();
+    
     @Override
     public List<GioHangChiTiet> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.chiTietRepository.findAll();
     }
-
+    
     @Override
     public void add(GioHangChiTiet gioHangChiTiet) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.chiTietRepository.insert(gioHangChiTiet);
     }
-
+    
     @Override
     public void update(GioHangChiTiet gioHangChiTiet) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.chiTietRepository.update(gioHangChiTiet);
     }
-
+    
     @Override
     public void delete(GioHangChiTiet gioHangChiTiet) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.chiTietRepository.delete(gioHangChiTiet);
     }
+    
     
 }

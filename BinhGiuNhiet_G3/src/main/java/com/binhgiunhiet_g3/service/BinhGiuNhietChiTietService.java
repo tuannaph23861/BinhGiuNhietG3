@@ -13,7 +13,7 @@ public interface BinhGiuNhietChiTietService {
     
     List<BinhGiuNhietChiTiet> getByIdSanPham(int id);
     
-    void add(BinhGiuNhietChiTiet binhGiuNhietChiTiet);
+    Boolean add(BinhGiuNhietChiTiet binhGiuNhietChiTiet);
     
     void update(BinhGiuNhietChiTiet binhGiuNhietChiTiet);
     

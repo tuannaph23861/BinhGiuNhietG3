@@ -41,4 +41,13 @@ public class BinhGiuNhietServiceImpl implements BinhGiuNhietService{
         this.binhGiuNhietRepository.delete(binhGiuNhiet);
     }
     
+    @Override
+    public BinhGiuNhiet findByMa(String ma) {
+        return this.binhGiuNhietRepository.findByMa(ma);
+    }
+
+    @Override
+    public BinhGiuNhiet findById(int id) {
+        return this.binhGiuNhietRepository.findById(id);
+    }
 }
