@@ -16,7 +16,7 @@ public interface KhuyenMaiService {
     
     void add(KhuyenMai km);
     
-    void update(KhuyenMai km);
+    void update(KhuyenMai km, Integer id);
     
     void delete(KhuyenMai km);
 }

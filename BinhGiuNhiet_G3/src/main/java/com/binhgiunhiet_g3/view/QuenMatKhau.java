@@ -128,54 +128,54 @@ public class QuenMatKhau extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
-        try {
-            Random rand = new Random();
-            int randomCode = rand.nextInt(999999);
-
-            String host = "smtp.gmail.com";
-            String user = "ccon18878@gmail.com";
-            String pass = "ehyd bkyk qfxp jhrq"; 
-            String to = txtEmail.getText();
-            String subject = "Mã xác nhận";
-            String message = "Mã xác nhận của bạn là " + randomCode;
-            boolean sessionDebug = false;
-
-            Properties props = new Properties();
-            props.put("mail.smtp.starttls.enable", "false");
-            props.put("mail.smtp.host", host);
-            props.put("mail.smtp.port", "587");
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.ssl.protocols", "TLSv1.2");
-
-            // Không cần thiết đặt thuộc tính này, có thể gây lỗi
-            // props.put("mail.smtp.starttls.required", "true");
-            // Loại bỏ dòng sau đây, không cần thiết và có thể gây lỗi
-            // java.security.Security.addProvider(new org.openeuler.com.sun.net.ssl.internal.ssl.Provider());
-            Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(user, pass);
-                }
-            });
-
-            mailSession.setDebug(sessionDebug);
-
-            Message msg = new MimeMessage(mailSession);
-            msg.setFrom(new InternetAddress(user));
-            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            msg.setSubject(subject);
-            msg.setText(message);
-
-            Transport transport = mailSession.getTransport("smtp");
-            transport.connect(host, user, pass);
-            transport.sendMessage(msg, msg.getAllRecipients());
-            transport.close();
-
-            JOptionPane.showMessageDialog(null, "Code đã được gửi");
-        } catch (Exception ex) {
-            ex.printStackTrace(); // Ghi log cho việc debug
-            JOptionPane.showMessageDialog(rootPane, "Gửi mã xác nhận thất bại. Vui lòng thử lại!");
-        }
-
+//        try {
+//            Random rand = new Random();
+//            int randomCode = rand.nextInt(999999);
+//
+//            String host = "smtp.gmail.com";
+//            String user = "ccon18878@gmail.com";
+//            String pass = "ehyd bkyk qfxp jhrq"; 
+//            String to = txtEmail.getText();
+//            String subject = "Mã xác nhận";
+//            String message = "Mã xác nhận của bạn là " + randomCode;
+//            boolean sessionDebug = false;
+//
+//            Properties props = new Properties();
+//            props.put("mail.smtp.starttls.enable", "false");
+//            props.put("mail.smtp.host", host);
+//            props.put("mail.smtp.port", "587");
+//            props.put("mail.smtp.auth", "true");
+//            props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+//
+//            // Không cần thiết đặt thuộc tính này, có thể gây lỗi
+//            // props.put("mail.smtp.starttls.required", "true");
+//            // Loại bỏ dòng sau đây, không cần thiết và có thể gây lỗi
+//            // java.security.Security.addProvider(new org.openeuler.com.sun.net.ssl.internal.ssl.Provider());
+//            Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
+//                protected PasswordAuthentication getPasswordAuthentication() {
+//                    return new PasswordAuthentication(user, pass);
+//                }
+//            });
+//
+//            mailSession.setDebug(sessionDebug);
+//
+//            Message msg = new MimeMessage(mailSession);
+//            msg.setFrom(new InternetAddress(user));
+//            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
+//            msg.setSubject(subject);
+//            msg.setText(message);
+//
+//            Transport transport = mailSession.getTransport("smtp");
+//            transport.connect(host, user, pass);
+//            transport.sendMessage(msg, msg.getAllRecipients());
+//            transport.close();
+//
+//            JOptionPane.showMessageDialog(null, "Code đã được gửi");
+//        } catch (Exception ex) {
+//            ex.printStackTrace(); // Ghi log cho việc debug
+//            JOptionPane.showMessageDialog(rootPane, "Gửi mã xác nhận thất bại. Vui lòng thử lại!");
+//        }
+//
 
     }//GEN-LAST:event_btnSendActionPerformed
 
