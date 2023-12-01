@@ -33,7 +33,7 @@ public class HoaDonChiTiet {
     private BigDecimal donGia;
 
     @ManyToOne
-    @JoinColumn(name = "IdHoaDon")
+    @JoinColumn(name = "IdHoaHon")
     private HoaDon hoaDon;
 
     @ManyToOne

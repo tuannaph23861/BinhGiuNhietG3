@@ -5,6 +5,7 @@
 package com.binhgiunhiet_g3.service.impl;
 
 import com.binhgiunhiet_g3.entity.BinhGiuNhietChiTiet;
+import com.binhgiunhiet_g3.entity.HoaDonChiTiet;
 import com.binhgiunhiet_g3.repository.BinhGiuNhietChiTietRepository;
 import com.binhgiunhiet_g3.service.BinhGiuNhietChiTietService;
 import java.util.List;

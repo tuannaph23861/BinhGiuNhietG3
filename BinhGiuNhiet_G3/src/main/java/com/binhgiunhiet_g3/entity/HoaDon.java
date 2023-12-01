@@ -27,7 +27,7 @@ public class HoaDon {
     @Column(name = "Id")
     private int id;
 
-    @Column(name = "MaHoaDon")
+    @Column(name = "MaDoaDon")
     private String maHoaDon;
     
     @Column(name = "TienSauGiamGia")

@@ -302,8 +302,8 @@ pnl = new BanHangPanel(nv);
 
     private void lblKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKhachHangMouseClicked
 //        cardLayout.show(pnlCards, "card2");
-        pnl = new KhachHangView();
-        setPanel(pnl);
+//        pnl = new KhachHangView();
+//        setPanel(pnl);
     }//GEN-LAST:event_lblKhachHangMouseClicked
 
     private void lblBanHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBanHangMouseEntered
@@ -385,11 +385,11 @@ pnl = new BanHangPanel(nv);
     }//GEN-LAST:event_lblLogOutMouseClicked
 
     private void lblSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSanPhamMouseClicked
-        if (setQuyen(nv)) {
-            pnl = new SanPham();
-            System.out.println(nv.toString());
-            setPanel(pnl);
-        }
+//        if (setQuyen(nv)) {
+//            pnl = new SanPham();
+//            System.out.println(nv.toString());
+//            setPanel(pnl);
+//        }
     }//GEN-LAST:event_lblSanPhamMouseClicked
 
     private void lblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMouseClicked

@@ -180,11 +180,11 @@ public class QuenMatKhau extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSendActionPerformed
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        if (Integer.valueOf(txtVerCode.getText()) == randomCode) {
-            PassReset rs = new PassReset(txtEmail.getText());
-            rs.setVisible(true);
-            this.setVisible(false);
-        }
+//        if (Integer.valueOf(txtVerCode.getText()) == randomCode) {
+//            PassReset rs = new PassReset(txtEmail.getText());
+//            rs.setVisible(true);
+//            this.setVisible(false);
+//        }
     }//GEN-LAST:event_btnVerActionPerformed
 
     /**

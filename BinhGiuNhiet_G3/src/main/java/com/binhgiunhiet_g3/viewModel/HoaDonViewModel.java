@@ -25,12 +25,12 @@ public class HoaDonViewModel {
     private Date ngayThanhToan;
     private int PTDG;
     private int TinhTrang;
-    private BigDecimal tongTien;
+    private float tongTien;
 
     public HoaDonViewModel() {
     }
 
-    public HoaDonViewModel(String maHD, String maNV, String maKH, String tenKH, String IdHD, Date ngayTao, Date ngayDat, Date ngayShip, Date ngayNhan, Date ngayThanhToan, int PTDG, int TinhTrang, BigDecimal tongTien) {
+    public HoaDonViewModel(String maHD, String maNV, String maKH, String tenKH, String IdHD, Date ngayTao, Date ngayDat, Date ngayShip, Date ngayNhan, Date ngayThanhToan, int PTDG, int TinhTrang, float tongTien) {
         this.maHD = maHD;
         this.maNV = maNV;
         this.maKH = maKH;
@@ -142,11 +142,11 @@ public class HoaDonViewModel {
         this.TinhTrang = TinhTrang;
     }
 
-    public BigDecimal getTongTien() {
+    public float getTongTien() {
         return tongTien;
     }
 
-    public void setTongTien(BigDecimal tongTien) {
+    public void setTongTien(float tongTien) {
         this.tongTien = tongTien;
     }
 

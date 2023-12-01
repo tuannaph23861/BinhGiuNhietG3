@@ -5,6 +5,7 @@
 package com.binhgiunhiet_g3.service.impl;
 
 import com.binhgiunhiet_g3.entity.HoaDon;
+import com.binhgiunhiet_g3.entity.HoaDonChiTiet;
 import com.binhgiunhiet_g3.repository.HoaDonRepository;
 import com.binhgiunhiet_g3.service.HoaDonService;
 import java.util.List;

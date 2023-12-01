@@ -13,6 +13,10 @@ import java.util.Date;
  */
 public class NhanVienViewModel {
 
+    public static Iterable<NhanVienViewModel> all() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     private String id;
     private String ma;
     private String ten;

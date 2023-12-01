@@ -22,23 +22,36 @@ public class NhanVienService implements IManageNhanVienService {
 
     @Override
     public List<NhanVien> getAll() {
-        return nhanVienRepo.getAll();
-
+   return nhanVienRepo.getAll();
+     
     }
 
-    @Override
-    public boolean add(NhanVien nhanVien) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     @Override
     public boolean update(NhanVien nhanVien) {
-       return this.nhanVienRepo.update(nhanVien);
+        try {
+            return nhanVienRepo.update(nhanVien);
+        } catch (Exception e) {
+            return false;
+        }
+    
     }
 
     @Override
-    public boolean delete(NhanVien nhanVien) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete(NhanVien nhanVien) {
+     nhanVienRepo.delete(nhanVien);
+        
+    }
+
+    @Override
+ public boolean add(NhanVien nv) {
+        
+        try {
+            return nhanVienRepo.add(nv);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

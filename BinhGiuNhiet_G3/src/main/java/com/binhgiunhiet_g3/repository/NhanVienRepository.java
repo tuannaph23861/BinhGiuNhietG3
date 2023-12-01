@@ -79,5 +79,18 @@ public class NhanVienRepository {
         }
         return new NhanVien();
     }
+    
+    public void delete(NhanVien nv) {
+        Transaction transaction = this.hSession.getTransaction();
+        try {
+            transaction.begin();
+            this.hSession.delete(nv);
+            transaction.commit();
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+        }
+    }
 
 }
