@@ -52,6 +52,11 @@
             <artifactId>jsse</artifactId>
             <version>1.0.0</version>
         </dependency>
+           <dependency>
+        <groupId>org.jfree</groupId>
+        <artifactId>jfreechart</artifactId>
+        <version>1.5.3</version>
+    </dependency>
         <!-- Thanks for using https://jar-download.com -->
 
     </dependencies>  

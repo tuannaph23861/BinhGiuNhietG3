@@ -4,6 +4,7 @@
  */
 package com.binhgiunhiet_g3.entity;
 
+import java.util.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,17 +30,18 @@ public class HoaDon {
 
     @Column(name = "MaHoaDon")
     private String maHoaDon;
-    
+
     @Column(name = "TienSauGiamGia")
     private float tienSauGiamGia;
-    
+
     @Column(name = "ThanhTien")
     private float thanhTien;
-    
+
     @Column(name = "PhuongThucThanhToan")
     private int phuongThucThanhToan;
-//     @Column(name="NgayThanhToan")
-//    private date ngayThanhToan ;
+
+    @Column(name = "NgayThanhToan")
+    private Date ngayThanhToan;
 
     @ManyToOne
     @JoinColumn(name = "IdKhachHang")
@@ -136,5 +138,4 @@ public class HoaDon {
         return "HoaDon{" + "id=" + id + ", maHoaDon=" + maHoaDon + ", tienSauGiamGia=" + tienSauGiamGia + ", thanhTien=" + thanhTien + ", phuongThucThanhToan=" + phuongThucThanhToan + ", khachHang=" + khachHang + ", nhanVien=" + nhanVien + ", khuyenMai=" + khuyenMai + '}';
     }
 
-    
 }

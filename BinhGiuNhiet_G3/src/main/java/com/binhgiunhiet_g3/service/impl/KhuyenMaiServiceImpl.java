@@ -30,13 +30,16 @@ public class KhuyenMaiServiceImpl implements KhuyenMaiService {
         this.khuyenmaiRepository.insert(khuyenMai);
     }
 
-    @Override
-    public void update(KhuyenMai khuyenMai) {
-        this.khuyenmaiRepository.update(khuyenMai);
-    }
+   
 
     @Override
     public void delete(KhuyenMai khuyenMai) {
         this.khuyenmaiRepository.delete(khuyenMai);
+    }
+
+    @Override
+    public void update(KhuyenMai km, Integer id) {
+       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       this.khuyenmaiRepository.update(km, id);
     }
 }
