@@ -501,6 +501,8 @@ public class BanHangPanel extends javax.swing.JPanel {
                 System.out.println(ma);
 
                 hoaDon.setMaHoaDon(ma);
+                
+                hoaDon.setNhanVien(this.nhanVien);
 
                 this.hoaDonService.add(hoaDon);
                 txtHoaDon.setText(ma);
