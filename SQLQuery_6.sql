@@ -126,20 +126,6 @@ CREATE TABLE HOADONCHITIET
     FOREIGN KEY (IdChiTietSanPham) REFERENCES BinhGiuNhietChiTiet(Id),
 )
 
-SELECT * FROM BinhGiuNhiet
-
-INSERT INTO BinhGiuNhiet (IdThuongHieu,IdChatLieu,NamSanXuat,MaBinhGiuNhiet,DungTich,Ten) Values
-(1,1,2014,'SP02',2000,'Binh Log&Travel'),
-(2,2,2016,'SP03',2200,'Binh Long'),
-(3,3,2017,'SP04',1200,'Binh Journey')
-
-
-INSERT INTO BinhGiuNhietChiTiet (IdBinhGiuNhiet,IdMauSac,SoLuong,GiaNhap,GiaBan,TrangThai) VALUES
-(5,1,20,12000,20000,1),
-(6,2,30,14100,16000,1),
-(7,3,24,12200,16000,1)
-
-
 INSERT INTO MauSac (MaMauSac,Ten) Values
 ('Mau01','Vàng'),
 ('Mau02','Xanh'),
@@ -152,7 +138,6 @@ INSERT INTO ThuongHieu (MaThuongHieu,Ten) VALUES
 ('TH03','Bình An'),
 ('TH04','Staff')
 
-
 INSERT INTO ChatLieu (MaChatLieu,Ten) VALUES 
 ('CL01','Gốm'),
 ('CL02','Nhôm'),
@@ -164,12 +149,21 @@ INSERT INTO KHUYENMAI (MaKhuyenMai,GiaTri,NgayBatDau,NgayKetThuc,KieuGiamGia,Tra
 ('KM03',10,'2022/8/12','2022/8/16',0,1),
 ('KM04',16,'2022/4/12','2022/4/16',0,0)
 
-SELECT * FROM NhanVien
+INSERT INTO BinhGiuNhiet (IdThuongHieu,IdChatLieu,NamSanXuat,MaBinhGiuNhiet,DungTich,Ten) Values
+(1,1,2014,'SP01',2000,'Binh Log&Travel'),
+(2,2,2016,'SP02',2200,'Binh Long'),
+(3,3,2017,'SP03',1200,'Binh Journey')
+
+
+INSERT INTO BinhGiuNhietChiTiet (IdBinhGiuNhiet,IdMauSac,SoLuong,GiaNhap,GiaBan,TrangThai) VALUES
+(1,1,20,12000,20000,1),
+(2,2,30,14100,16000,1),
+(3,3,24,12200,16000,1)
 
 INSERT INTO KhachHang (MaKhachHang,TenKhachHang,NgaySinh,SoDienThoai,Email,DiaChi) VALUES 
-('KH03','Nguyễn Huy Toàn','2003-08-27','0882137281','toan@gmail.com','Hà nam'),
-('KH04','Nguyễn Mạnh Hùng','2003-06-22','0322137281','hung@gmail.com','Hà Tĩnh'),
-('KH05','Lê Anh Dũng','2002-04-25','0864213813','dung@gmail.com','Hà nội')
+('KH01','Nguyễn Huy Toàn','2003-08-27','0882137281','toan@gmail.com','Hà nam'),
+('KH02','Nguyễn Mạnh Hùng','2003-06-22','0322137281','hung@gmail.com','Hà Tĩnh'),
+('KH03','Lê Anh Dũng','2002-04-25','0864213813','dung@gmail.com','Hà nội')
 
 
 INSERT INTO NhanVien (ChucVu,MaNhanVien,Ten,NgaySinh,SoDienThoai,Email,MatKhau,GioiTinh,DiaChi,TrangThai) VALUES
@@ -180,24 +174,22 @@ INSERT INTO NhanVien (ChucVu,MaNhanVien,Ten,NgaySinh,SoDienThoai,Email,MatKhau,G
 
 
 INSERT INTO GioHang (MaGioHang,NgayTao,TrangThai,IdKhachHang) VALUES
-('GH01','2022-04-12',1,4),
-('GH01','2022-04-12',1,5),
-('GH01','2022-04-12',1,6)
+('GH01','2022-04-23',1,1),
+('GH02','2022-06-22',1,2),
+('GH03','2022-05-16',1,3)
 
 INSERT INTO ChiTietGioHang (IdGioHang,SoLuong,IdBinhGiuNhietChiTiet) VALUES
-(2,4,2),
-(3,2,3),
-(4,3,4)
-
-SELECT * FROM HOADONCHITIET
+(1,4,1),
+(2,2,2),
+(3,3,3)
 
 INSERT INTO HoaDon (IdKhachHang,IdNhanVien,IdkhuyenMai,MaDoaDon,TienSauGiamGia,ThanhTien,PhuongThucThanhToan,NgayThanhToan) VALUES
-(4,1,1,2,112399,120000,0,'2022-02-12'),
-(5,2,2,3,112499,124000,0,'2022-02-14'),
-(6,3,3,4,142399,153000,0,'2022-02-15')
+(1,1,1,1,112399,120000,0,'2022-02-12'),
+(2,2,2,2,112499,124000,0,'2022-02-14'),
+(3,3,3,3,142399,153000,0,'2022-02-15')
 
 
 INSERT INTO HOADONCHITIET (IdHoaHon,IdChiTietSanPham,SoLuong,DonGia) VALUES
-(1,2,2,200000),
-(2,3,1,220000),
-(3,4,3,250000)
+(1,1,2,200000),
+(2,2,1,220000),
+(3,3,3,250000)
