@@ -374,7 +374,6 @@ public class KhachHangView extends javax.swing.JPanel {
 
         }
 
-
     }//GEN-LAST:event_btnSuaKhachHangActionPerformed
 
     private void btnXoaKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaKhachHangActionPerformed

@@ -16,6 +16,7 @@ import com.binhgiunhiet_g3.service.impl.MauSacServiceImpl;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -221,6 +222,17 @@ public class SanPhamChiTietView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        for (BinhGiuNhietChiTiet binhGiuNhietChiTiet : this.binhGiuNhietChiTiets) {
+            if(binhGiuNhietChiTiet.getMauSac().getTen().equals(cbbMau.getSelectedItem())){
+                
+                System.out.println(binhGiuNhietChiTiet.getMauSac());
+                System.out.println(cbbMau.getSelectedItem());
+                
+                JOptionPane.showMessageDialog(this, "Biến thể đã tồn tại");
+                return;
+            }
+        }
+        
         this.binhGiuNhietChiTietService.add(getTxtSanPhamChiTiet());
 
         

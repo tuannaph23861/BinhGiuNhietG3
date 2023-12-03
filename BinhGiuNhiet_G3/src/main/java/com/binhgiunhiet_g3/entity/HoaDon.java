@@ -133,6 +133,14 @@ public class HoaDon {
         this.khuyenMai = khuyenMai;
     }
 
+    public Date getNgayThanhToan() {
+        return ngayThanhToan;
+    }
+
+    public void setNgayThanhToan(Date ngayThanhToan) {
+        this.ngayThanhToan = ngayThanhToan;
+    }
+
     @Override
     public String toString() {
         return "HoaDon{" + "id=" + id + ", maHoaDon=" + maHoaDon + ", tienSauGiamGia=" + tienSauGiamGia + ", thanhTien=" + thanhTien + ", phuongThucThanhToan=" + phuongThucThanhToan + ", khachHang=" + khachHang + ", nhanVien=" + nhanVien + ", khuyenMai=" + khuyenMai + '}';

@@ -7,6 +7,7 @@ package com.binhgiunhiet_g3.view;
 import com.binhgiunhiet_g3.entity.NhanVien;
 import com.binhgiunhiet_g3.service.IManageNhanVienService;
 import com.binhgiunhiet_g3.service.impl.NhanVienService;
+import com.binhgiunhiet_g3.view.*;
 import com.binhgiunhiet_g3.utils.MsgBox;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -32,6 +33,9 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         this.nv = nv;
+        
+        pnl = new BanHangPanel(nv);
+        setPanel(pnl);
     }
 
     private boolean setQuyen(NhanVien nv) {
@@ -307,9 +311,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblBanHangMouseClicked
 
     private void lblKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKhachHangMouseClicked
-//        cardLayout.show(pnlCards, "card2");
-//        pnl = new KhachHangView();
-//        setPanel(pnl);
+        pnl = new KhachHangView();
+        setPanel(pnl);
     }//GEN-LAST:event_lblKhachHangMouseClicked
 
     private void lblBanHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBanHangMouseEntered
@@ -392,11 +395,10 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_lblLogOutMouseClicked
 
     private void lblSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSanPhamMouseClicked
-//        if (setQuyen(nv)) {
-//            pnl = new SanPham();
-//            System.out.println(nv.toString());
-//            setPanel(pnl);
-//        }
+        if (setQuyen(nv)) {
+            pnl = new SanPhamPanel();
+            setPanel(pnl);
+        }
     }//GEN-LAST:event_lblSanPhamMouseClicked
 
     private void lblNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMouseClicked

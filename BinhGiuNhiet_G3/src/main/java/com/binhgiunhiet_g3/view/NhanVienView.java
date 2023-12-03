@@ -601,7 +601,7 @@ public class NhanVienView extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = tblRow.getSelectedRow();
         NhanVien nhanVien = nhanVienService.getAll().get(row);
-        if (row != 1) {
+        if (row >= 0) {
 
             txtId.setText(String.valueOf(nhanVien.getId()));
             txtTen.setText(nhanVien.getTen());
