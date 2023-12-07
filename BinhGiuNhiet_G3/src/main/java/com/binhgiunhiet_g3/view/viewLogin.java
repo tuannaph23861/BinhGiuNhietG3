@@ -49,7 +49,6 @@ public class viewLogin extends javax.swing.JFrame {
         } else if (!pass.equals(nhanVien.getMatKhau())) {
             MsgBox.alert(this, "Sai Mật Khẩu!");
         } else {
-            MsgBox.alert(this, "Đăng Nhập Thành Công!");
             new Home(nhanVien).setVisible(true);
             this.dispose();
 
